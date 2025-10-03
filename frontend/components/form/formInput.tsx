@@ -4,7 +4,8 @@ const FormInput: React.FC<{
   name: string;
   formName: string;
   type?: string;
-}> = ({ name, formName, type }) => {
+  children?: React.ReactNode;
+}> = ({ name, formName, type, children }) => {
   if (type === "textarea") {
     return (
       <div>
@@ -20,6 +21,7 @@ const FormInput: React.FC<{
       </div>
     );
   }
+
   return (
     <div>
       <label htmlFor={formName} className="text-xs font-normal">

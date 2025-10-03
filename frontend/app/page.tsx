@@ -10,6 +10,7 @@ import DealSchedule from "@/components/form/dealSchedule";
 import Overview from "@/components/car-detail/overview";
 import Description from "@/components/car-detail/description";
 import DetailsSpecification from "@/components/car-detail/Details-Specification";
+import FinanceCalculator from "@/components/car-detail/financeCalculator";
 
 const page = () => {
   return (
@@ -52,7 +53,7 @@ const page = () => {
           <CarCompare />
         </div>
       </div>
-      <div>finance calculator</div>
+      <FinanceCalculator />
     </main>
   );
 };
