@@ -3,7 +3,7 @@ import { Eye, LeftArrow } from "../svg";
 
 const Navigation = () => {
   return (
-    <div className="flex justify-between items-center px-9.25">
+    <div className="px-9.25 text-[var(--Primary-Font)] flex justify-between items-center">
       <div className="flex items-center gap-2.5">
         <button className="py-4 w-30 h-12.5 font-semibold text-[13px] text-[var(--Primary-Muted-Blue)] inline-flex items-center gap-2.5">
           <LeftArrow />
@@ -25,7 +25,7 @@ const Navigation = () => {
           ))}
         </ul>
       </div>
-      <div className="px-3 py-2.75 h-5.75 rounded-[26px] text-xs font-bold bg-[var(--other-offWhite)] inline-flex items-center gap-1.75">
+      <div className="px-3 py-2.75 h-5.75 rounded-[26px] text-xs font-bold bg-[var(--other-offWhite)] text-[var(--Primary-Midnight-Blue)] inline-flex items-center gap-1.75">
         <Eye />
         <p>48 Viewing Now</p>
       </div>
