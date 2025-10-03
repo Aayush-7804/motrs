@@ -5,20 +5,26 @@ const Button: React.FC<{
   className?: string;
   type?: string;
   disable?: boolean;
-}> = ({ children, className, type, disable }) => {
+  onClick?: () => void;
+}> = ({ children, className, type, disable, onClick }) => {
   if (type === "button") {
     return (
       <button
         type="button"
-        className={`px-6.25 py-4 text-sm font-semibold ${className}`}
         disabled={disable}
+        onClick={onClick}
+        className={`px-6.25 py-4 text-sm font-semibold ${className}`}
       >
         {children}
       </button>
     );
   }
   return (
-    <button disabled={disable} className={`px-6.25 py-4 text-sm font-semibold ${className}`}>
+    <button
+      onClick={onClick}
+      disabled={disable}
+      className={`px-6.25 py-4 text-sm font-semibold ${className}`}
+    >
       {children}
     </button>
   );
