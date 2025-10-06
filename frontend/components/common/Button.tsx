@@ -13,7 +13,7 @@ const Button: React.FC<{
         type="button"
         disabled={disable}
         onClick={onClick}
-        className={`px-6.25 py-4 text-sm font-semibold ${className}`}
+        className={`max-[1025px]:text-xs leading-4.5 px-6.25 py-4 text-sm font-semibold ${className}`}
       >
         {children}
       </button>
@@ -23,7 +23,7 @@ const Button: React.FC<{
     <button
       onClick={onClick}
       disabled={disable}
-      className={`px-6.25 py-4 text-sm font-semibold ${className}`}
+      className={`max-[1025px]:text-xs leading-4.5 px-6.25 py-4 text-sm font-semibold ${className}`}
     >
       {children}
     </button>

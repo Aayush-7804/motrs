@@ -15,7 +15,7 @@ const DetailPageForm = () => {
     <form className="p-7.5 space-y-2.5 border-t border-b border-[#ffffff33]">
               <div className="mb-5 flex flex-col gap-5">
                 <h4 className="text-xl font-medium">Enquire about this car</h4>
-                <div className="px-3.75 py-3.25 text-xs bg-[var(--other-White)] flex items-center justify-between">
+                <div className="px-3.75 leading-5.5 py-3.25 text-xs bg-[var(--other-White)] flex items-center justify-between">
                   <p></p>
                   <p className="font-bold text-[var(--Primary-Muted-Blue)] ">
                     Show Contect Number
@@ -39,7 +39,7 @@ const DetailPageForm = () => {
                   I agree to receive general emails and product offers.
                 </span>
               </div>
-              <p className="text-xs">
+              <p className="text-xs leading-4.5">
                 Read how we protect and process your personal information{" "}
                 <span className="underline">here.</span>
               </p>

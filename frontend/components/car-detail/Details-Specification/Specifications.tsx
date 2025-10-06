@@ -14,7 +14,7 @@ const Specifications: React.FC<{ initialCondition: boolean }> = ({
       className="px-4.75 py-5.25 bg-[var(--other-offWhite)]"
     >
       <div className="flex justify-between items-center">
-        <h3 className="text-xl font-bold capitalize">body</h3>
+        <h3 className="text-xl leading-5.5 font-bold capitalize">body</h3>
         {!showSpecificationsDetail ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -50,7 +50,7 @@ const Specifications: React.FC<{ initialCondition: boolean }> = ({
         )}
       </div>
       {showSpecificationsDetail && (
-        <div className="mt-3.75 flex items-center gap-47.5">
+        <div className="mt-3.75 leading-8.5 flex items-center gap-47.5 max-[376px]:gap-15">
           <div className="text-[var(--Secondary-Font)]">
             <h4>Body Type</h4>
             <h4>Doors</h4>

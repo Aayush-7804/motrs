@@ -47,11 +47,11 @@ const overviewDetails: {
 
 const Overview = () => {
   return (
-    <div className="pb-8.5 grid grid-cols-3 gap-x-12.5 gap-y-8.25">
+    <div className="pb-8.5 grid grid-cols-3 max-[376px]:grid-cols-2 gap-x-12.5 gap-y-8.25">
       {overviewDetails.map((overviewDetail, index) => (
         <div key={index} className="flex flex-col items-center text-center gap-1.75">
           {overviewDetail.icon}
-          <div className="text-[var(--Primary-Font)]">
+          <div className="text-[var(--Primary-Font)] leading-6">
             <h4 className="text-[var(--Secondary-Font)]">
               {overviewDetail.header}
             </h4>

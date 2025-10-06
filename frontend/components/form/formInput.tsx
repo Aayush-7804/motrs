@@ -9,7 +9,7 @@ const FormInput: React.FC<{
   if (type === "textarea") {
     return (
       <div>
-        <label htmlFor={formName} className="text-xs font-normal">
+        <label htmlFor={formName} className="text-xs leading-4.5 font-normal">
           {name}
         </label>
         <textarea
@@ -24,7 +24,7 @@ const FormInput: React.FC<{
 
   return (
     <div>
-      <label htmlFor={formName} className="text-xs font-normal">
+      <label htmlFor={formName} className="text-xs leading-4.5 font-normal">
         {name}
       </label>
       <input

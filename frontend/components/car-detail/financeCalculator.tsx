@@ -13,38 +13,61 @@ const FinanceCalculator = () => {
     setShowCalcu((pervShow) => !pervShow);
   };
   return (
-    <div className="px-10 py-15 text-[var(--other-White)] bg-[var(--Primary-Midnight-Blue)]">
+    <div className="px-10 max-[376px]:px-5 max-[376px]:py-8.25 py-15 text-[var(--other-White)] bg-[var(--Primary-Midnight-Blue)]">
       <div className="flex items-center justify-between">
-        <h2 className="text-5xl font-bold capitalize">finance calculator</h2>
-        <svg
-          onClick={show}
-          xmlns="http://www.w3.org/2000/svg"
-          width="54"
-          height="54"
-          viewBox="0 0 54 54"
-          fill="none"
-          className={showCalcu ? "rotate-180" : ""}
-        >
-          <path
-            d="M13.5 20.25L27 33.75L40.5 20.25"
-            stroke="white"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
+        <h2 className="text-5xl max-[376px]:text-3xl font-bold capitalize max-[376px]:leading-8.25 min-[769px]:leading-13.75">
+          finance calculator
+        </h2>
+        <div onClick={show}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="28"
+            height="28"
+            viewBox="0 0 28 28"
+            fill="none"
+            className={`min-[376px]:hidden ${showCalcu ? "rotate-180" : ""}`}
+          >
+            <path
+              d="M7 10.5L14 17.5L21 10.5"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="54"
+            height="54"
+            viewBox="0 0 54 54"
+            fill="none"
+            className={`max-[376px]:hidden ${showCalcu ? "rotate-180" : ""}`}
+          >
+            <path
+              d="M13.5 20.25L27 33.75L40.5 20.25"
+              stroke="white"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </div>
       </div>
       {showCalcu && (
         <div>
-          <p className="w-[454px] h-17.25 mt-3.75 mb-4.25">
+          <p className="min[376px]:w-[454px] max-[376px]:w-fit h-17.25 mt-3.75 mb-4.25">
             Calculate your estimated monthly repayment as well as total interest
             based on the vehicle retail price.
           </p>
-          <div className="flex gap-18">
-            <form className="space-y-10">
-              <div className="grid grid-cols-2 gap-x-9.5 gap-y-4">
+          <div className="max-[769px]:block max-[769px]:space-y-8 flex gap-18">
+            <form className="space-y-10 max-[376px]:space-y-9">
+              <div className="grid grid-cols-2 max-[376px]:block gap-x-9.5 gap-y-4">
                 <FormInput formName="purchase-price" name="Purchase Price" />
-                <Dropdown formName="repayment-period" name="Repayment period" initialState={INITIAL} />
+                <Dropdown
+                  formName="repayment-period"
+                  name="Repayment period"
+                  initialState={INITIAL}
+                />
                 <FormInput formName="deposit" name="Deposit/Trade in Value" />
                 <FormInput formName="residual" name="Residual/Balloon Value" />
                 <FormInput
@@ -94,16 +117,16 @@ const FinanceCalculator = () => {
               </div>
             </form>
             <div className="space-y-9">
-              <div className="grid grid-cols-2 gap-x-11.75 gap-y-8.25">
+              <div className="grid grid-cols-2 max-[376px]:block max-[376px]:space-y-2.75 gap-x-11.75 gap-y-8.25">
                 <div className="space-y-2.75">
                   <h4 className="font-medium ">Loan Amount</h4>
-                  <p className="text-3xl font-bold text-[var(--Secondary-Teal)] ">
+                  <p className="text-3xl leading-8.25 font-bold text-[var(--Secondary-Teal)] ">
                     R422 202
                   </p>
                 </div>
                 <div className="space-y-2.75">
                   <h4 className="font-medium ">Monthly Interest Rate</h4>
-                  <p className="text-3xl font-bold text-[var(--Secondary-Teal)] ">
+                  <p className="text-3xl leading-8.25 font-bold text-[var(--Secondary-Teal)] ">
                     R422 202
                   </p>
                 </div>
@@ -111,25 +134,25 @@ const FinanceCalculator = () => {
                   <h4 className="font-medium ">
                     Estimated Monthly Installments
                   </h4>
-                  <p className="text-3xl font-bold text-[var(--Secondary-Teal)] ">
+                  <p className="text-3xl leading-8.25 font-bold text-[var(--Secondary-Teal)] ">
                     R422 202
                   </p>
                 </div>
                 <div className="space-y-2.75">
                   <h4 className="font-medium ">Total Repayment Amount</h4>
-                  <p className="text-3xl font-bold text-[var(--Secondary-Teal)] ">
+                  <p className="text-3xl leading-8.25 font-bold text-[var(--Secondary-Teal)] ">
                     R422 202
                   </p>
                 </div>
                 <div className="space-y-2.75">
                   <h4 className="font-medium ">Total Interest</h4>
-                  <p className="text-3xl font-bold text-[var(--Secondary-Teal)] ">
+                  <p className="text-3xl leading-8.25 font-bold text-[var(--Secondary-Teal)] ">
                     R422 202
                   </p>
                 </div>
                 <div className="space-y-2.75">
                   <h4 className="font-medium ">Total Cost</h4>
-                  <p className="text-3xl font-bold text-[var(--Secondary-Teal)] ">
+                  <p className="text-3xl leading-8.25 font-bold text-[var(--Secondary-Teal)] ">
                     R422 202
                   </p>
                 </div>
@@ -137,7 +160,7 @@ const FinanceCalculator = () => {
               <Button className="bg-[var(--Primary-Cheery-Red)]">
                 Apply for finance
               </Button>
-              <p className="text-xs w-[559px] leading-4.5 opacity-70 text-justify">
+              <p className="text-xs w-[550px] max-[1025px]:w-[375px] max-[769px]:w-fit leading-4.5 opacity-70 text-justify">
                 <span className="inline-block w-full">Disclaimer</span> While we
                 strive to provide the best tools and information, Motus Select,
                 its agents, employees, and accredited financiers accept no

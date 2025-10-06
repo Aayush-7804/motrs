@@ -16,13 +16,18 @@ const page = () => {
   return (
     <main className="max-w-360 mx-auto">
       <Navigation />
-      <DetailsHeader />
+      <div className="max-[376px]:hidden max-[1441px]:px-9.75">
+        <DetailsHeader />
+      </div>
       <ImageGrid />
-      <div className=" max-[1441px]:px-9.75 mb-10 grid grid-cols-[repeat(2,1fr)_484px] gap-10">
-        <div className="col-span-2">
+      <div className="min-[376px]:hidden max-[376px]:px-5">
+      <DetailsHeader />
+      </div>
+      <div className="max-[1441px]:px-9.75 max-[376px]:px-5 mb-10 grid grid-cols-[repeat(2,1fr)_484px] max-[1025px]:grid-cols-[repeat(2,1fr)_334px] max-[769px]:block max-[769px]:space-y-8 gap-10">
+        <div className="col-span-2 max-[376px]:flex flex-col">
           <Description />
           <div className="mb-8 bg-[var(--other-offWhite)]">
-            <h3 className="px-4.75 py-5.25 text-xl font-bold capitalize">
+            <h3 className="px-4.75 py-5.25 text-xl leading-5.5 font-bold capitalize">
               overview
             </h3>
             <Overview />
@@ -46,7 +51,7 @@ const page = () => {
               alt="Brand-logo"
               width={500}
               height={500}
-              className="w-20 h-20"
+              className="w-20 h-20 max-[376px]:hidden"
             />
             <QualityAssurance />
           </div>
