@@ -1,6 +1,7 @@
 import Header from '@/components/header';
 import React from 'react';
 import './globals.css'
+import Footer from '@/components/footer';
 
 const layout: React.FC<{children: React.ReactNode}> = ({children}) => {
   return (
@@ -8,6 +9,7 @@ const layout: React.FC<{children: React.ReactNode}> = ({children}) => {
       <body>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   )
