@@ -12,6 +12,7 @@ import Description from "@/components/car-detail/description";
 import DetailsSpecification from "@/components/car-detail/Details-Specification";
 import FinanceCalculator from "@/components/car-detail/financeCalculator";
 import Subscribe from "@/components/car-detail/subscribe";
+import NewsNReviews from "@/components/car-detail/news&Reviews";
 
 const page = () => {
   return (
@@ -60,6 +61,7 @@ const page = () => {
         </div>
       </div>
       <FinanceCalculator />
+      <NewsNReviews />
       <Subscribe />
     </main>
   );
