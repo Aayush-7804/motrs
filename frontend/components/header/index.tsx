@@ -15,8 +15,9 @@ const navItems: string[] = [
 
 const Header = () => {
   return (
-    <header className="bg-[var(--Primary-Midnight-Blue)] text-[var(--other-White)] h-25 px-10 py-4.75 flex justify-between items-center">
-      <div className="w-58.5 h-9 overflow-hidden">
+    <header className="bg-[var(--Primary-Midnight-Blue)] text-[var(--other-White)]">
+      <div className="max-w-360 h-25 px-10 py-4.75 mx-auto flex justify-between items-center">
+        <div className="w-58.5 h-9 overflow-hidden">
         <Image src="/Logo.png" alt="logo" width={224} height={36} priority />
       </div>
       <nav>
@@ -40,6 +41,8 @@ const Header = () => {
           sign Up/ Login
         </Button>
       </div>
+      </div>
+      
     </header>
   );
 };

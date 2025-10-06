@@ -13,7 +13,7 @@ const carImages: string[] = [
 
 const ImageGrid = () => {
   return (
-    <div className="grid grid-cols-5 gap-0.5 px-9.75 mb-15">
+    <div className="max-[1441px]:px-9.75 mb-15 grid grid-cols-5 gap-0.5">
       {carImages.map((src, index) => (
         <div key={index} className="first:col-span-2 first:row-span-2">
           <Image

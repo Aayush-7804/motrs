@@ -14,11 +14,11 @@ import FinanceCalculator from "@/components/car-detail/financeCalculator";
 
 const page = () => {
   return (
-    <main>
+    <main className="max-w-360 mx-auto">
       <Navigation />
       <DetailsHeader />
       <ImageGrid />
-      <div className="grid grid-cols-[repeat(2,1fr)_484px] gap-10 px-9.75">
+      <div className=" max-[1441px]:px-9.75 mb-10 grid grid-cols-[repeat(2,1fr)_484px] gap-10">
         <div className="col-span-2">
           <Description />
           <div className="mb-8 bg-[var(--other-offWhite)]">

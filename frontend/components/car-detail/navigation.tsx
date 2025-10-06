@@ -3,9 +3,9 @@ import { Eye, LeftArrow } from "../svg";
 
 const Navigation = () => {
   return (
-    <div className="px-9.25 text-[var(--Primary-Font)] flex justify-between items-center">
+    <div className=" max-[1441px]:px-9.75 text-[var(--Primary-Font)] flex justify-between items-center">
       <div className="flex items-center gap-2.5">
-        <button className="py-4 w-30 h-12.5 font-semibold text-[13px] text-[var(--Primary-Muted-Blue)] inline-flex items-center gap-2.5">
+        <button className="py-4 w-30 h-12.5 font-semibold text-xs text-[var(--Primary-Muted-Blue)] inline-flex items-center gap-2.5">
           <LeftArrow />
           <p className="leading-4.5">Back to listing</p>
         </button>

@@ -4,9 +4,9 @@ import { InfoMark, SupInfoMark } from "../svg";
 
 const DetailsHeader = () => {
   return (
-    <div className="px-9.75 mb-7.5 text-[var(--Primary-Font)] flex items-center justify-between">
+    <div className="max-[1441px]:px-9.75 mb-7.5 text-[var(--Primary-Font)] flex items-center justify-between">
       <div className="flex flex-col gap-2.5">
-        <h1 className="text-[34px] font-medium">2013 Nissan Juke 1.6 Acenta</h1>
+        <h1 className="text-4xl font-medium">2013 Nissan Juke 1.6 Acenta</h1>
         <div className="flex items-center gap-5">
           <button className="w-21.5 h-5.75 bg-[var(--Secondary-Teal)] text-[var(--other-White)] flex justify-center items-center gap-1">
             <span className="text-[10px]">Great Price</span>
