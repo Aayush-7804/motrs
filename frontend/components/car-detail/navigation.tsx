@@ -3,7 +3,7 @@ import { Eye, LeftArrow } from "../svg";
 
 const Navigation = () => {
   return (
-    <div className=" max-[1441px]:px-9.75 max-[376px]:px-5  text-[var(--Primary-Font)] flex justify-between items-center">
+    <div className="max-w-360 mx-auto max-[1441px]:px-9.75 max-[376px]:px-5  text-[var(--Primary-Font)] flex justify-between items-center">
       <div className="flex items-center gap-2.5 max-[376px]:w-full max-[376px]:justify-between">
         <button className="py-4 w-30 h-12.5 font-semibold text-xs text-[var(--Primary-Muted-Blue)] inline-flex items-center gap-2.5">
           <LeftArrow />

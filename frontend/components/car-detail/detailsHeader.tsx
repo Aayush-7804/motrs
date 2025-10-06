@@ -4,7 +4,7 @@ import { Eye, InfoMark, SupInfoMark } from "../svg";
 
 const DetailsHeader = () => {
   return (
-    <div>
+    <div className="max-w-360 mx-auto">
       <div className="min-[376px]:hidden flex items-center justify-between mb-3.75">
         <button className="w-21.5 h-5.75 bg-[var(--Secondary-Teal)] text-[var(--other-White)] flex justify-center items-center gap-1">
           <span className="text-[10px]">Great Price</span>

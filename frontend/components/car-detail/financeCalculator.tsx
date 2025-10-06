@@ -13,7 +13,7 @@ const FinanceCalculator = () => {
     setShowCalcu((pervShow) => !pervShow);
   };
   return (
-    <div className="px-10 max-[376px]:px-5 max-[376px]:py-8.25 py-15 text-[var(--other-White)] bg-[var(--Primary-Midnight-Blue)]">
+    <div className="max-w-360 mx-auto px-10 max-[376px]:px-5 max-[376px]:py-8.25 py-15 text-[var(--other-White)] bg-[var(--Primary-Midnight-Blue)]">
       <div className="flex items-center justify-between">
         <h2 className="text-5xl max-[376px]:text-3xl font-bold capitalize max-[376px]:leading-8.25 min-[769px]:leading-13.75">
           finance calculator

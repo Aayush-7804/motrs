@@ -35,7 +35,7 @@ const Footer = () => {
               </li>
             ))}
           </ul>
-          <div className="max-[1441px]:w-1/3 space-y-3  max-[769px]:w-full">
+          <div className="w-1/3 space-y-3  max-[769px]:w-full">
             <h3 className="text-lg font-semibold capitalize">our company</h3>
             <ul className="grid grid-cols-2 gap-y-2 capitalize">
               <li>about us</li>

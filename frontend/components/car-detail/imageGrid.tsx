@@ -21,7 +21,7 @@ const ImageGrid = () => {
   };
 
   return (
-    <div className="max-[1441px]:px-9.75 mb-15 grid grid-cols-5 max-[376px]:block max-[376px]:p-0 max-[376px]:mb-5 gap-0.5">
+    <div className="max-w-360 mx-auto max-[1441px]:px-9.75 mb-15 grid grid-cols-5 max-[376px]:block max-[376px]:p-0 max-[376px]:mb-5 gap-0.5">
       {items.map((item, index) => (
         <div
           key={item.id}
