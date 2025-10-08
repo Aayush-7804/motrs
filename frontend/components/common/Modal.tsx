@@ -8,7 +8,7 @@ const Modal: React.FC<{
   open: boolean;
   onClose: () => void;
   className?: string;
-}> = ({ children, open,onClose, className }) => {
+}> = ({ children, open, onClose, className }) => {
   const dialog = useRef<HTMLDialogElement>(null);
   useEffect(() => {
     const modal = dialog.current;
@@ -16,14 +16,19 @@ const Modal: React.FC<{
     if (open) {
       modal?.showModal();
     }
+    
+    document.body.style.overflow = "hidden";
 
-    return () => modal?.close();
+    return () => {
+      modal?.close();
+      document.body.style.overflow = "";
+    };
   }, [open]);
   return createPortal(
     <dialog
       ref={dialog}
       onClose={onClose}
-      className={`backdrop:bg-black/90 outline-0 left-1/2 top-1/2 -translate-1/2 ${className}`}
+      className={`backdrop:bg-[var(--Primary-Midnight-Blue)]/50 outline-0 left-1/2 top-1/2 -translate-1/2 ${className}`}
     >
       {children}
     </dialog>,
