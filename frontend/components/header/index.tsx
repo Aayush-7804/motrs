@@ -15,7 +15,7 @@ const navItems: string[] = [
 
 const Header = () => {
   return (
-    <header className="bg-[var(--Primary-Midnight-Blue)] text-[var(--other-White)]">
+    <header className="bg-[var(--Primary-Midnight-Blue)] text-[var(--other-White)] z-100">
       <div className="max-w-360 h-25 px-10 py-5 max-[769px]:p-0 max-[769px]:h-20 mx-auto flex justify-between items-center max-[769px]:justify-around">
         <div className="min-[769px]:hidden">
           <svg

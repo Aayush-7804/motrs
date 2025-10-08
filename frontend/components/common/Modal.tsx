@@ -15,13 +15,15 @@ const Modal: React.FC<{
 
     if (open) {
       modal?.showModal();
-    }
-    
-    document.body.style.overflow = "hidden";
-
-    return () => {
+      document.body.style.overflow = "hidden";
+    } else {
       modal?.close();
-      document.body.style.overflow = "";
+      document.body.style.overflow = "auto";
+    }
+
+    // Cleanup function to ensure overflow is reset when component unmounts
+    return () => {
+      document.body.style.overflow = "auto";
     };
   }, [open]);
   return createPortal(
