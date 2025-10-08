@@ -16,8 +16,8 @@ const navItems: string[] = [
 const Header = () => {
   return (
     <header className="bg-[var(--Primary-Midnight-Blue)] text-[var(--other-White)]">
-      <div className="max-w-360 h-25 px-10 py-5 max-[376px]:px-5 max-[376px]:py-6.25 mx-auto flex justify-between items-center">
-        <div className="min-[769px]:hidden px-14.5 max-[376px]:px-0">
+      <div className="max-w-360 h-25 px-10 py-5 max-[769px]:p-0 max-[769px]:h-20 mx-auto flex justify-between items-center max-[769px]:justify-around">
+        <div className="min-[769px]:hidden">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="17"
@@ -63,7 +63,7 @@ const Header = () => {
             ))}
           </ul>
         </nav>
-        <div className="flex items-center gap-9.75">
+        <div className="flex items-center gap-9.75 max-[1025px]:gap-5">
           <div className="min-[769px]:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -81,11 +81,11 @@ const Header = () => {
               />
             </svg>
           </div>
-          <div className="max-[1025px]:hidden flex items-center gap-6 text-[var(--other-offWhite)]">
+          <div className="max-[769px]:hidden flex items-center gap-6 text-[var(--other-offWhite)]">
             <Magnifying />
             <RegHeart />
           </div>
-          <Button className="max-[376px]:hidden bg-[var(--Primary-Cheery-Red)]">
+          <Button className="max-[769px]:hidden bg-[var(--Primary-Cheery-Red)] max-[1025px]:px-2.5">
             sign Up/ Login
           </Button>
         </div>
