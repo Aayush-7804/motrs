@@ -44,7 +44,7 @@ const ImageGrid = () => {
         <Modal
           open={modalOpen}
           onClose={() => handleModalClose(null)}
-          className="w-fit h-220"
+          className="w-fit min[769px]:h-220"
         >
           <div className="flex items-center px-7.5 py-5 text-[var(--Primary-Midnight-Blue)] bg-[var(--other-White)] border-b border-[var(--other-Grey)]">
             <h1 className="text-xl font-bold leading-5.5 capitalize w-full">
@@ -75,20 +75,20 @@ const ImageGrid = () => {
             </svg>
           </div>
           <div className="flex">
-            <div className="w-[875px] flex flex-col gap-2.5 p-7.5">
+            <div className="w-[875px] max-[1025px]:w-[575px] max-[769px]:w-[675px] flex flex-col gap-2.5 p-7.5">
               <p className="text-sm leading-5.5 text-[var(--Primary-Font)]">
                 Image Description Goes here. Lorem ipsum dolor sit amet,
                 consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                 labore et dolore magna aliqua. Ut enim ad minim veniam, quis
                 nostrud exercitation ullamco
               </p>
-              <div className="relative flex justify-center items-center w-full h-[613px] overflow-hidden">
+              <div className="relative w-full h-[613px] max-[1025px]:h-[413px]">
                 <Image
                   src={openedIMage.src}
                   alt="open"
                   width={500}
                   height={500}
-                  className="w-full"
+                  className="w-full h-full object-cover"
                 />
                 <div className="absolute top-3 right-3.75 flex items-center gap-4 px-3.5 py-1.5 rounded-[30px] bg-[var(--other-White)] opacity-90">
                   <svg
@@ -170,7 +170,9 @@ const ImageGrid = () => {
                 ))}
               </div>
             </div>
+            <div className="max-[769px]:hidden">
             <DealerContact />
+            </div>
           </div>
         </Modal>
       )}
@@ -256,7 +258,7 @@ const ImageGrid = () => {
                   360°
                 </div>
                 <div className="absolute bottom-3 left-3.75 p-1.25 text-[var(--Secondary-Teal)] font-bold bg-[var(--other-White)] rounded-[5px] opacity-90">
-                  <BsArrowsFullscreen />
+                  <BsArrowsFullscreen onClick={() => handleModal(item)} />
                 </div>
                 <div className="min-[376px]:hidden absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1 justify-center">
                   {carImages.map((item) => (
