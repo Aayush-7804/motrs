@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "../common/Button";
 import { Eye, InfoMark, SupInfoMark } from "../svg";
+import InfoLabels from "../common/InfoLabels";
 
 const DetailsHeader = () => {
   return (
@@ -25,19 +26,14 @@ const DetailsHeader = () => {
               <span className="text-[10px]">Great Price</span>
               <InfoMark />
             </button>
-            <ul className="max-[769px]:text-xs flex items-center gap-1.5 text-[var(--Secondary-Font)] leading-6">
-              {["Used Car", "3434Km", "Automatic", "Petrol"].map(
-                (item, index) => (
-                  <li key={index} className="px-1.5 border-r last:border-0">
-                    {item}
-                  </li>
-                )
-              )}
-            </ul>
+            <InfoLabels
+              items={["Used Car", "3434Km", "Automatic", "Petrol"]}
+              className="max-[769px]:text-xs text-[var(--Secondary-Font)] leading-6"
+            />
           </div>
         </div>
         <div className="flex items-center gap-8 max-[769px]:gap-4 max-[376px]:block">
-          <div className="text-[var(--Primary-Cheery-Red)] max-[376px]:mb-4.5">
+          <div className="text-[var(--Primary-Cherry-Red)] max-[376px]:mb-4.5">
             <div className="flex items-end gap-1">
               <span className="text-base font-normal leading-7.5 max-[376px]:leading-7 text-[var(--Secondary-Font)] max-[769px]:text-[10px]">
                 Was <span className="line-through">R145 800</span>
@@ -51,7 +47,7 @@ const DetailsHeader = () => {
               <SupInfoMark />
             </div>
           </div>
-          <Button className="text-[var(--other-White)] bg-[var(--Primary-Cheery-Red)] ">
+          <Button className="text-[var(--other-White)] bg-[var(--Primary-Cherry-Red)] ">
             Enquire Now
           </Button>
         </div>

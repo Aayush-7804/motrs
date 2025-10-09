@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import Button from "../common/Button";
-import { Magnifying, RegHeart } from "../svg";
+import { HEADERMagnifying, RegHeart } from "../svg";
 
 const navItems: string[] = [
   "Buy Cars",
@@ -82,10 +82,10 @@ const Header = () => {
             </svg>
           </div>
           <div className="max-[769px]:hidden flex items-center gap-6 text-[var(--other-offWhite)]">
-            <Magnifying />
-            <RegHeart />
+            <HEADERMagnifying />
+            <RegHeart color="#F5F7F2" />
           </div>
-          <Button className="max-[769px]:hidden bg-[var(--Primary-Cheery-Red)] max-[1025px]:px-2.5">
+          <Button className="max-[769px]:hidden bg-[var(--Primary-Cherry-Red)] max-[1025px]:px-2.5">
             sign Up/ Login
           </Button>
         </div>

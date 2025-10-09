@@ -1,4 +1,6 @@
-export const Magnifying = () => {
+import React from "react";
+
+export const HEADERMagnifying = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -24,7 +26,7 @@ export const Magnifying = () => {
     </svg>
   );
 };
-export const RegHeart = () => {
+export const RegHeart: React.FC<{color?:string}> = ({color}) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -35,7 +37,7 @@ export const RegHeart = () => {
     >
       <path
         d="M17.3667 3.84172C16.9411 3.41589 16.4357 3.0781 15.8795 2.84763C15.3233 2.61716 14.7271 2.49854 14.1251 2.49854C13.523 2.49854 12.9268 2.61716 12.3706 2.84763C11.8144 3.0781 11.309 3.41589 10.8834 3.84172L10.0001 4.72506L9.11673 3.84172C8.25698 2.98198 7.09092 2.49898 5.87506 2.49898C4.6592 2.49898 3.49314 2.98198 2.63339 3.84172C1.77365 4.70147 1.29065 5.86753 1.29065 7.08339C1.29065 8.29925 1.77365 9.46531 2.63339 10.3251L3.51672 11.2084L10.0001 17.6917L16.4834 11.2084L17.3667 10.3251C17.7926 9.89943 18.1304 9.39407 18.3608 8.83785C18.5913 8.28164 18.7099 7.68546 18.7099 7.08339C18.7099 6.48132 18.5913 5.88514 18.3608 5.32893C18.1304 4.77271 17.7926 4.26735 17.3667 3.84172V3.84172Z"
-        stroke="#F5F7F2"
+        stroke={color || "#2AA295"}
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -200,25 +202,25 @@ export const Call = () => {
     </svg>
   );
 };
-export const Location = () => {
+export const Location: React.FC<{color?:string; size?: number}> = ({color, size}) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="22"
-      height="22"
+      width={size || "22"}
+      height={size || "22"}
       viewBox="0 0 22 22"
       fill="none"
     >
       <path
         d="M18.5 9.33325C18.5 15.1666 11 20.1666 11 20.1666C11 20.1666 3.5 15.1666 3.5 9.33325C3.5 7.34413 4.29018 5.43647 5.6967 4.02995C7.10322 2.62343 9.01088 1.83325 11 1.83325C12.9891 1.83325 14.8968 2.62343 16.3033 4.02995C17.7098 5.43647 18.5 7.34413 18.5 9.33325Z"
-        stroke="#2AA295"
+        stroke={color || "#2AA295"}
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M11 11.8333C12.3807 11.8333 13.5 10.714 13.5 9.33325C13.5 7.95254 12.3807 6.83325 11 6.83325C9.61929 6.83325 8.5 7.95254 8.5 9.33325C8.5 10.714 9.61929 11.8333 11 11.8333Z"
-        stroke="#2AA295"
+        stroke={color || "#2AA295"}
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"

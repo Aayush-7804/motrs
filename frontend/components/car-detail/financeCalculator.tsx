@@ -78,7 +78,7 @@ const FinanceCalculator = () => {
               <div className="flex gap-5.75">
                 <Button
                   disable
-                  className="bg-[var(--Primary-Cheery-Red)] disabled:opacity-30"
+                  className="bg-[var(--Primary-Cherry-Red)] disabled:opacity-30"
                 >
                   Calculate
                 </Button>
@@ -157,7 +157,7 @@ const FinanceCalculator = () => {
                   </p>
                 </div>
               </div>
-              <Button className="bg-[var(--Primary-Cheery-Red)]">
+              <Button className="bg-[var(--Primary-Cherry-Red)]">
                 Apply for finance
               </Button>
               <p className="text-xs w-[550px] max-[1025px]:w-[375px] max-[769px]:w-fit leading-4.5 opacity-70 text-justify">

@@ -5,10 +5,11 @@ const FormInput: React.FC<{
   formName: string;
   type?: string;
   children?: React.ReactNode;
-}> = ({ name, formName, type, children }) => {
+  className?: string;
+}> = ({ name, formName, type, className, children }) => {
   if (type === "textarea") {
     return (
-      <div>
+      <div className={className}>
         <label htmlFor={formName} className="text-xs leading-4.5 font-normal">
           {name}
         </label>
@@ -23,15 +24,23 @@ const FormInput: React.FC<{
   }
 
   return (
-    <div>
-      <label htmlFor={formName} className="text-xs leading-4.5 font-normal">
-        {name}
-      </label>
+    <div className={className}>
+      {type === "checkbox" || type === "radio" ? (
+        <p>{name}</p>
+      ) : (
+        <label htmlFor={formName} className="text-xs leading-4.5 font-normal">
+          {name}
+        </label>
+      )}
       <input
         id={formName}
         name={formName}
         type={type || "text"}
-        className="w-full px-3.75 py-3.25 text-sm bg-[var(--other-White)] text-black outline-0"
+        className={`${
+          type === "checkbox" || type === "radio"
+            ? "checked:text-[var(--Secondary-Teal)] appearance-none max-w-6 max-h-6 outline-0 border border-[var(--other-Grey)] rounded-[5px]"
+            : "w-full"
+        } px-3.75 py-3.25 text-sm bg-[var(--other-White)] text-black outline-0`}
       />
     </div>
   );

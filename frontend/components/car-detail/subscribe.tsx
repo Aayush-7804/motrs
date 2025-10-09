@@ -11,7 +11,7 @@ const Subscribe = () => {
       </div>
       <form className="flex max-[769px]:flex-col max-[769px]:items-start max-[376px]:items-stretch items-end gap-4.5">
         <FormInput formName="user-email" name="Your Email" />
-        <Button className="bg-[var(--Primary-Cheery-Red)]">Subscribe</Button>
+        <Button className="bg-[var(--Primary-Cherry-Red)]">Subscribe</Button>
       </form>
     </div>
   );

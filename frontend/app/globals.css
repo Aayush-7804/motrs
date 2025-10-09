@@ -3,12 +3,13 @@
 :root {
   --Primary-Midnight-Blue: #02253A;
   --Primary-Muted-Blue: #003C52;
-  --Primary-Cheery-Red: #E2003C;
-  --Secondary-Teal: #2AA295;
+  --Primary-Cherry-Red: #E2003C;
   --Primary-Font: #1B1B1B;
+  --Secondary-Teal: #2AA295;
+  --Secondary-Dirty-Red:#892034;
   --Secondary-Font: #686868;
-  --Disabled-Font: #A7A7A7;
   --Font-Disabled-Font: #A7A7A7;
+  --Disabled-Font: #A7A7A7;
   --other-offWhite: #F5F7F2;
   --other-Grey: #ECEBEA;
   --other-White: #FFFFFF;
@@ -28,8 +29,19 @@
   }
 }
 
+
 body {
   margin: 0px;
   padding: 0px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.custom-pagination .custom-bullet.custom-bullet-active {
+  background-color: var(--Secondary-Teal) !important;
+}
+
+@media (max-width: 375px) {
+  .swiper-slide.swiper-slide-active {
+    width: fit-content !important;
+  }
 }
