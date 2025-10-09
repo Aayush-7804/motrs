@@ -12,7 +12,6 @@ const Modal: React.FC<{
   const dialog = useRef<HTMLDialogElement>(null);
   useEffect(() => {
     const modal = dialog.current;
-
     if (open) {
       modal?.showModal();
       document.body.style.overflow = "hidden";
@@ -30,7 +29,10 @@ const Modal: React.FC<{
     <dialog
       ref={dialog}
       onClose={onClose}
-      className={`backdrop:bg-[var(--Primary-Midnight-Blue)]/50 outline-0 left-1/2 top-1/2 -translate-1/2 ${className}`}
+      className={`backdrop:bg-[var(--Primary-Midnight-Blue)]/50 outline-0 
+        max-w-full max-h-full m-0 w-full h-full bg-[var(--Primary-Midnight-Blue)] 
+        sm:max-w-fit sm:max-h-4/5 min-[1441px]:h-fit sm:bg-white 
+        sm:left-1/2 sm:top-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2 ${className}`}
     >
       {children}
     </dialog>,

@@ -1,38 +1,94 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
-import ImageSvgs from "../svg/imageSvgs";
+import ImageSvgs from "./imageSvgs";
 
 interface ImageSliderProps {
   images: { id: number; src: string }[];
-  fullScreen: (image: { id: number; src: string }) => void;
+  fullScreen?: (image: { id: number; src: string }) => void;
+  currentImageShown?: (image: { id: number; src: string }) => void;
+  initialImage?: { id: number; src: string };
+  mobileModal?: boolean;
 }
 
-const ImageSlider: React.FC<ImageSliderProps> = ({ images, fullScreen }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+const ImageSlider: React.FC<ImageSliderProps> = ({
+  images,
+  fullScreen,
+  initialImage,
+  currentImageShown,
+  mobileModal,
+}) => {
+  const [currentIndex, setCurrentIndex] = useState(() => {
+    if (initialImage) {
+      const index = images.findIndex(
+        (img) => img.id === initialImage.id && img.src === initialImage.src
+      );
+      return index !== -1 ? index : 0;
+    }
+    return 0;
+  });
+  const swiperRef = useRef<any>(null);
+
+  // Update Swiper when initialImage changes
+  useEffect(() => {
+    if (initialImage && swiperRef.current?.swiper) {
+      const index = images.findIndex(
+        (img) => img.id === initialImage.id && img.src === initialImage.src
+      );
+      if (index !== -1) {
+        setCurrentIndex(index);
+        swiperRef.current.swiper.slideTo(index);
+        if (currentImageShown) {
+          currentImageShown(images[index]);
+        }
+      }
+    }
+  }, [initialImage, images, currentImageShown]);
 
   // Handle slide change
   const handleSlideChange = (swiper: any) => {
     setCurrentIndex(swiper.activeIndex);
+    if (currentImageShown) {
+      currentImageShown(images[swiper.activeIndex]);
+    }
   };
 
   // Go to specific slide
   const goToSlide = (index: number) => {
     setCurrentIndex(index);
-    const swiper = document.querySelector(".mySwiper")?.swiper;
-    if (swiper) {
-      swiper.slideTo(index);
+    if (swiperRef.current?.swiper) {
+      swiperRef.current.swiper.slideTo(index);
+      if (currentImageShown) {
+        currentImageShown(images[index]);
+      }
     }
   };
 
   const currentImage = images[currentIndex];
+
   return (
-    <div className="w-full max-w-2xl mx-auto">
+    <div className="w-full">
       {/* Swiper Slider */}
       <Swiper
-        spaceBetween={16}
+        breakpoints={{
+          375: {
+            spaceBetween: 0,
+          },
+          768: {
+            spaceBetween: 16,
+          },
+        }}
         slidesPerView={1}
+        initialSlide={
+          initialImage
+            ? images.findIndex(
+                (img) =>
+                  img.id === initialImage.id && img.src === initialImage.src
+              )
+            : 0
+        }
         onSlideChange={handleSlideChange}
+        onSwiper={(swiper) => (swiperRef.current = swiper)}
         className="mySwiper gap-5"
       >
         {images.map((image, index) => (
@@ -47,11 +103,15 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images, fullScreen }) => {
             />
           </SwiperSlide>
         ))}
-        <ImageSvgs onClick={() => fullScreen(currentImage)} />
+        {!mobileModal && <ImageSvgs onClick={() => fullScreen(currentImage)} />}
       </Swiper>
 
       {/* Custom Pagination */}
-      <div className="flex justify-center items-center mt-4 gap-4 max-[376px]:gap-2">
+      <div
+        className={`${
+          mobileModal ? "hidden" : "block"
+        } flex justify-center items-center mt-4 gap-4 max-[376px]:gap-2`}
+      >
         {/* First Button (<<) */}
         <button
           onClick={() => goToSlide(0)}
@@ -96,8 +156,8 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images, fullScreen }) => {
         )}
 
         {/* Fixed 3 Middle Buttons with Changing Values */}
-        {images.length > 3 && 
-        (() => {
+        {images.length > 3 &&
+          (() => {
             const maxButtons = 3; // Always show 3 buttons
             const half = Math.floor(maxButtons / 2);
             // Calculate start to center the currentIndex, but cap it to ensure 3 buttons

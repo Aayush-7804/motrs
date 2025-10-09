@@ -1,6 +1,6 @@
 import React from "react";
 import Navigation from "@/components/car-detail/navigation";
-import ImageGrid from "@/components/car-detail/imageGrid";
+import ImageGrid from "@/components/car-detail/Image-grid";
 import DetailsHeader from "@/components/car-detail/detailsHeader";
 import Image from "next/image";
 import QualityAssurance from "@/components/car-detail/qualityAssurance";
