@@ -1,15 +1,16 @@
 import React from "react";
 import { Eye, LeftArrow } from "../svg";
 import InfoLabels from "../common/InfoLabels";
+import Button from "../common/Button";
 
 const Navigation = () => {
   return (
     <div className="max-w-360 mx-auto max-[1441px]:px-9.75 max-[376px]:px-5 max-[376px]:bg-[var(--other-offWhite)] text-[var(--Primary-Font)] flex justify-between items-center">
       <div className="flex items-center gap-2.5 max-[376px]:w-full max-[376px]:justify-between">
-        <button className="py-4 w-30 h-12.5 font-semibold text-xs text-[var(--Primary-Muted-Blue)] inline-flex items-center gap-2.5">
+        <Button className="whitespace-nowrap w-30.25 min-[1px]:px-0 h-12.5 text-[var(--Primary-Muted-Blue)] inline-flex items-center gap-2.5">
           <LeftArrow />
           <p className="leading-4.5">Back to listing</p>
-        </button>
+        </Button>
         <div className="max-[376px]:hidden">
           <InfoLabels
             items={[
@@ -18,7 +19,7 @@ const Navigation = () => {
               "2024 Audi A4",
               "2024 Audi A4 40 TFSI S line",
             ]}
-            className="eading-5.5 last:font-bold text-sm max-[769px]:text-xs"
+            className="leading-5.5 last:font-bold text-sm max-[769px]:text-xs"
           />
         </div>
         <div className="min-[376px]:hidden">

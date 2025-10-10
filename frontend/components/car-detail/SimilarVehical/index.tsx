@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import React, { useState } from "react";
 import SimilarItem from "./SimilarItem";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -14,7 +14,7 @@ const SimilarVehicle = () => {
   return (
     <div className="max-w-360 mx-auto px-10 max-[376px]:px-0 py-15 flex flex-col gap-7.5">
       <div className="max-[376px]:px-5 flex flex-col items-center gap-2.5">
-        <h2 className="text-[50px] font-bold leading-13.75 capitalize text-[var(--Primary-Muted-Blue)]">
+        <h2 className="text-[50px] max-[376px]:text-3xl max-[376px]:leading-8.25 font-bold leading-13.75 capitalize text-[var(--Primary-Muted-Blue)] text-center">
           Other Hyundai Tucson&apos;s
         </h2>
         <small className="text-base leading-6 text-[var(--Secondary-Font)]">

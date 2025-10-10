@@ -10,10 +10,10 @@ import Description from "@/components/car-detail/description";
 import DetailsSpecification from "@/components/car-detail/Details-Specification";
 import FinanceCalculator from "@/components/car-detail/financeCalculator";
 import Subscribe from "@/components/car-detail/subscribe";
-import NewsNReviews from "@/components/car-detail/news&Reviews";
-import DealerContact from "@/components/car-detail/dealerContact";
+import DealerContact from "@/components/car-detail/Dealer-Contact";
 import SimilarVehicle from "@/components/car-detail/SimilarVehical";
 import MoveOnTo from "@/components/car-detail/moveOnTo";
+import NewsNReviews from "@/components/car-detail/News-and-Reviews";
 
 const page = () => {
   return (
@@ -24,13 +24,18 @@ const page = () => {
       </div>
       <ImageGrid />
       <div className="min-[376px]:hidden max-[376px]:px-5">
-      <DetailsHeader />
+        <DetailsHeader />
       </div>
       <div className="max-w-360 mx-auto max-[1441px]:px-9.75 max-[376px]:px-5 mb-10 grid grid-cols-[repeat(2,1fr)_484px] max-[1025px]:grid-cols-[repeat(2,1fr)_334px] max-[769px]:block max-[769px]:space-y-8 gap-10">
         <div className="col-span-2 max-[376px]:flex flex-col">
-          <Description />
+          <div className="mb-9.25">
+            <h3 className="text-xl font-bold capitalize leading-5.5 mb-5.75">
+              description
+            </h3>
+            <Description />
+          </div>
           <div className="mb-8 bg-[var(--other-offWhite)]">
-            <h3 className="px-4.75 py-5.25 text-xl leading-5.5 font-bold capitalize">
+            <h3 className="px-4.75 py-5.5 text-xl leading-5.5 font-bold capitalize">
               overview
             </h3>
             <Overview />

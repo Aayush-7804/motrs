@@ -26,7 +26,9 @@ const FormInput: React.FC<{
   return (
     <div className={className}>
       {type === "checkbox" || type === "radio" ? (
-        <p>{name}</p>
+        <>
+          <p className="text-sm leading-5.5">{name}</p>
+        </>
       ) : (
         <label htmlFor={formName} className="text-xs leading-4.5 font-normal">
           {name}
@@ -38,9 +40,9 @@ const FormInput: React.FC<{
         type={type || "text"}
         className={`${
           type === "checkbox" || type === "radio"
-            ? "checked:text-[var(--Secondary-Teal)] appearance-none max-w-6 max-h-6 outline-0 border border-[var(--other-Grey)] rounded-[5px]"
-            : "w-full"
-        } px-3.75 py-3.25 text-sm bg-[var(--other-White)] text-black outline-0`}
+            ? "checked:bg-[var(--Secondary-Teal)] appearance-none w-6 h-6 outline-0 border border-[var(--other-Grey)] rounded-[5px]"
+            : "w-full px-3.75 py-3.25"
+        }  text-sm bg-[var(--other-White)] text-black outline-0`}
       />
     </div>
   );

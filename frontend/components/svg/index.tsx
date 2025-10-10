@@ -26,7 +26,59 @@ export const HEADERMagnifying = () => {
     </svg>
   );
 };
-export const RegHeart: React.FC<{color?:string}> = ({color}) => {
+export const HEADERBar = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="17"
+      height="13"
+      viewBox="0 0 17 13"
+      fill="none"
+    >
+      <rect
+        width="17"
+        height="2.19512"
+        rx="1.09756"
+        transform="matrix(1 0 0 -1 0 12.7195)"
+        fill="#E2003C"
+      />
+      <rect
+        width="17"
+        height="2.19512"
+        rx="1.09756"
+        transform="matrix(1 0 0 -1 0 7.59741)"
+        fill="#E2003C"
+      />
+      <rect
+        width="17"
+        height="2.19512"
+        rx="1.09756"
+        transform="matrix(1 0 0 -1 0 2.47559)"
+        fill="#E2003C"
+      />
+    </svg>
+  );
+};
+export const HEADERSearchBar = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="23"
+      height="23"
+      viewBox="0 0 23 23"
+      fill="none"
+    >
+      <path
+        d="M17.7288 17.7292L20.1247 20.125M3.83301 5.75H19.1663M3.83301 11.5H7.66634M3.83301 17.25H7.66634M10.5413 14.375C10.5413 15.3917 10.9452 16.3667 11.6641 17.0856C12.383 17.8045 13.358 18.2083 14.3747 18.2083C15.3913 18.2083 16.3664 17.8045 17.0852 17.0856C17.8041 16.3667 18.208 15.3917 18.208 14.375C18.208 13.3583 17.8041 12.3833 17.0852 11.6644C16.3664 10.9455 15.3913 10.5417 14.3747 10.5417C13.358 10.5417 12.383 10.9455 11.6641 11.6644C10.9452 12.3833 10.5413 13.3583 10.5413 14.375Z"
+        stroke="#E2003C"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+};
+export const RegHeart: React.FC<{ color?: string }> = ({ color }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -202,7 +254,10 @@ export const Call = () => {
     </svg>
   );
 };
-export const Location: React.FC<{color?:string; size?: number}> = ({color, size}) => {
+export const Location: React.FC<{ color?: string; size?: number }> = ({
+  color,
+  size,
+}) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -248,8 +303,8 @@ export const PinkPlus = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="22"
-      height="23"
+      width="auto"
+      height="auto"
       viewBox="0 0 22 23"
       fill="none"
     >
@@ -260,7 +315,6 @@ export const PinkPlus = () => {
     </svg>
   );
 };
-
 
 export const Milage = () => {
   return (
@@ -454,7 +508,6 @@ export const EngineCap = () => {
     </svg>
   );
 };
-
 
 export const NewSvg = () => {
   return null;

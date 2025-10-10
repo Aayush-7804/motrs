@@ -13,6 +13,7 @@
   --other-offWhite: #F5F7F2;
   --other-Grey: #ECEBEA;
   --other-White: #FFFFFF;
+  --Notification-Successful: #009706;
 }
 
 @theme inline {
@@ -41,7 +42,7 @@ body {
 }
 
 @media (max-width: 375px) {
-  .swiper-slide.swiper-slide-active {
+  .swiper-slide {
     width: fit-content !important;
   }
 }

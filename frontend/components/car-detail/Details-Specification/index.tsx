@@ -4,10 +4,8 @@ import React, { useState } from "react";
 import Button from "../../common/Button";
 import Specifications from "./Specifications";
 
-const INITIAL = false;
-
 const DetailsSpecification = () => {
-  const [showSpecifications, setShowSpecifications] = useState(INITIAL);
+  const [showSpecifications, setShowSpecifications] = useState(false);
 
   const show = () => {
     setShowSpecifications(true);
@@ -24,7 +22,7 @@ const DetailsSpecification = () => {
         </Button>
       ) : (
         <div className="space-y-5">
-          <Specifications initialCondition={INITIAL} />
+          <Specifications />
         </div>
       )}
     </>

@@ -2,14 +2,14 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import Modal from "../../common/Modal";
-import DealerContact from "../dealerContact";
+import DealerContact from "../Dealer-Contact";
 import ImageSlider from "./imageSlider";
 import ImageSvgs from "./imageSvgs";
 
 type imageType = { id: number; src: string };
 
 const carImages: imageType[] = [
-  { id: 1, src: "/car-details-images/image1.jpg" },
+  { id: 1, src: "/news/news1.jpg" },
   { id: 2, src: "/car-details-images/image2.jpg" },
   { id: 3, src: "/car-details-images/image3.jpg" },
   { id: 4, src: "/car-details-images/image4.jpg" },
@@ -84,14 +84,14 @@ const ImageGrid = () => {
                 </svg>
               </div>
               <div className="flex">
-                <div className="w-[875px] max-[1025px]:w-[575px] max-[769px]:w-[675px] min-[1441px]:w-[1475px] flex flex-col gap-2.5 p-7.5">
+                <div className="w-[875px] max-[1025px]:w-[575px] max-[769px]:w-[675px] flex flex-col gap-2.5 p-7.5">
                   <p className="text-sm leading-5.5 text-[var(--Primary-Font)]">
                     Image Description Goes here. Lorem ipsum dolor sit amet,
                     consectetur adipiscing elit, sed do eiusmod tempor
                     incididunt ut labore et dolore magna aliqua. Ut enim ad
                     minim veniam, quis nostrud exercitation ullamco
                   </p>
-                  <div className="relative w-full h-[613px] max-[1025px]:h-[413px] min-[1441px]:h-[913px]">
+                  <div className="relative w-full h-[613px] max-[1025px]:h-[413px]">
                     <Image
                       src={openedImage.src}
                       alt="open"
@@ -166,7 +166,7 @@ const ImageGrid = () => {
         </>
       )}
 
-      <div className="relative overflow-hidden max-w-360 mx-auto mb-15 max-[1441px]:mx-9.75 max-[376px]:m-0 max-[376px]:mb-5 grid grid-cols-5 gap-0.5 max-[769px]:flex max-[769px]:h-[573px] max-[376px]:h-[353px]">
+      <div className="relative overflow-hidden max-w-360 mx-auto mb-15 max-[1441px]:mx-9.75 max-[376px]:m-0 max-[376px]:mb-5 grid grid-cols-5 gap-0.5 max-[769px]:flex ">
         <div className="max-[769px]:hidden relative min-w-full min-h-full col-span-2 row-span-2 ">
           <Image
             src={carImages[0].src}
