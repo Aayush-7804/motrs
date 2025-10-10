@@ -9,15 +9,15 @@ const CarCompare = () => {
         Compare Cars
       </h3>
       <div className="grid grid-cols-4 gap-3.5 max-[376px]:gap-2.5">
-        <div className="max-[376px]:w-15.75 max-[376px]:h-15.75 max-[376px]:p-1.25 p-3 flex flex-col justify-center items-center gap-1.5 text-center border border-dashed border-[var(--Font-Disabled-Font)]">
+        <div className="max-[1025px]:w-15.75 max-[1025px]:h-15.75 max-[376px]:p-1.25 p-3 flex flex-col justify-center items-center gap-1.5 text-center border border-dashed border-[var(--Font-Disabled-Font)]">
           <PinkPlus />
           <h4 className="max-[1025px]:text-[10px] leading-4.5 text-xs font-bold text-[var(--Primary-Cherry-Red)]">
             Add this Car
           </h4>
         </div>
-        <div className="max-[376px]:w-15.75 max-[376px]:h-15.75 p-1.25 border border-dashed border-[var(--Font-Disabled-Font)]"></div>
-        <div className="max-[376px]:w-15.75 max-[376px]:h-15.75 p-1.25 border border-dashed border-[var(--Font-Disabled-Font)]"></div>
-        <div className="max-[376px]:w-15.75 max-[376px]:h-15.75 p-1.25 border border-dashed border-[var(--Font-Disabled-Font)]"></div>
+        <div className="max-[1025px]:w-15.75 max-[1025px]:h-15.75 p-1.25 border border-dashed border-[var(--Font-Disabled-Font)]"></div>
+        <div className="max-[1025px]:w-15.75 max-[1025px]:h-15.75 p-1.25 border border-dashed border-[var(--Font-Disabled-Font)]"></div>
+        <div className="max-[1025px]:w-15.75 max-[1025px]:h-15.75 p-1.25 border border-dashed border-[var(--Font-Disabled-Font)]"></div>
       </div>
       <Button
         disable={true}

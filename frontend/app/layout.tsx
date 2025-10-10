@@ -5,6 +5,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import Footer from '@/components/footer';
+import OverlFooter from '@/components/car-detail/Overlay-footer';
 
 const layout: React.FC<{children: React.ReactNode}> = ({children}) => {
   return (
@@ -13,6 +14,7 @@ const layout: React.FC<{children: React.ReactNode}> = ({children}) => {
         <Header />
         {children}
         <Footer />
+        <OverlFooter />
       </body>
     </html>
   )

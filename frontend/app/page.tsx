@@ -16,7 +16,7 @@ import SimilarVehicle from "@/components/car-detail/SimilarVehical";
 
 const page = () => {
   return (
-    <main className="">
+    <main>
       <Navigation />
       <div className="max-[376px]:hidden max-[1441px]:px-9.75">
         <DetailsHeader />
