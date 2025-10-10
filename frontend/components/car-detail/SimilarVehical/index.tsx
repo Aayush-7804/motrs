@@ -3,31 +3,8 @@ import React, { useState } from "react";
 import SimilarItem from "./SimilarItem";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const SimilarVehicle = () => {
-  // const itemsPerPage = 4;
-  // const [currentPage, setCurrentPage] = useState(0);
-
-  // // Calculate total pages
-  // const totalPages = Math.ceil(arrya.length / itemsPerPage);
-
-  // // Slice the array to get current 4 items
-  // const startIndex = currentPage * itemsPerPage;
-  // const visibleItems = arrya.slice(startIndex, startIndex + itemsPerPage);
-  // const goToPrevious = () => {
-  //   if (currentPage > 0) {
-  //     setCurrentPage(currentPage - 1);
-  //   }
-  // };
-
-  // // Handle next page
-  // const goToNext = () => {
-  //   if (currentPage < totalPages - 1) {
-  //     setCurrentPage(currentPage + 1);
-  //   }
-  // };
-
   const [swiper, setSwiper] = useState<any>(null);
   const items = Array.from({ length: 12 }).map((_, i) => ({ id: i + 1 })); // Example: 12 items
 
