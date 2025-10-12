@@ -20,7 +20,7 @@ const Dropdown: React.FC<{
           type="button"
           name={formName}
           id={formName}
-          className={`w-full text-sm bg-[var(--other-White)] text-[var(--Disabled-Font)] outline-0 flex items-center justify-between ${
+          className={`w-full text-sm bg-[var(--Other-White)] text-[var(--Disabled-Font)] outline-0 flex items-center justify-between ${
             open
               ? "border border-[var(--Secondary-Teal)] px-3.25 py-2.5"
               : "px-3.5 py-2.75"
@@ -45,7 +45,7 @@ const Dropdown: React.FC<{
           </svg>
         </button>
         {open && (
-          <div className="absolute top-full left-0 z-10 w-full h-31 overflow-y-auto bg-[var(--other-White)] text-[var(--Primary-Midnight-Blue)]">
+          <div className="absolute top-full left-0 z-10 w-full h-31 overflow-y-auto bg-[var(--Other-White)] text-[var(--Primary-Midnight-Blue)]">
             <ul className="p-2 space-y-2">
               <li className="hover:text-[var(--Secondary-Teal)] cursor-pointer">
                 4 month

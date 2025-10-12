@@ -17,7 +17,7 @@ const FormInput: React.FC<{
           id={formName}
           name={formName}
           rows={3}
-          className="w-full px-3.75 py-3.25 text-sm bg-[var(--other-White)] text-black outline-0"
+          className="w-full px-3.75 py-3.25 text-sm bg-[var(--Other-White)] text-black outline-0"
         ></textarea>
       </div>
     );
@@ -40,9 +40,9 @@ const FormInput: React.FC<{
         type={type || "text"}
         className={`${
           type === "checkbox" || type === "radio"
-            ? "checked:bg-[var(--Secondary-Teal)] appearance-none w-6 h-6 outline-0 border border-[var(--other-Grey)] rounded-[5px]"
+            ? "checked:bg-[var(--Secondary-Teal)] appearance-none w-6 h-6 outline-0 border border-[var(--Other-Grey)] rounded-[5px]"
             : "w-full px-3.75 py-3.25"
-        }  text-sm bg-[var(--other-White)] text-black outline-0`}
+        }  text-sm bg-[var(--Other-White)] text-black outline-0`}
       />
     </div>
   );

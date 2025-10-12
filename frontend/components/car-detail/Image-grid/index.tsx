@@ -55,7 +55,7 @@ const ImageGrid = () => {
             className="w-fit min[769px]:h-220"
           >
             <div className="max-[376px]:hidden">
-              <div className="sticky top-0 z-30 flex items-center px-7.5 py-5 text-[var(--Primary-Midnight-Blue)] bg-[var(--other-White)] border-b border-[var(--other-Grey)]">
+              <div className="sticky top-0 z-30 flex items-center px-7.5 py-5 text-[var(--Primary-Midnight-Blue)] bg-[var(--Other-White)] border-b border-[var(--Other-Grey)]">
                 <h1 className="text-xl font-bold leading-5.5 capitalize w-full">
                   2017 Hyundai Tucson 2.0CRDi Elite - R 399 950
                 </h1>
@@ -123,7 +123,7 @@ const ImageGrid = () => {
             </div>
             <div className="min-[376px]:hidden relative">
               <div className="absolute top-0 w-full flex items-center justify-between p-3">
-                <div className="bg-[var(--other-White)] px-2 py-1 flex items-center gap-1 text-[var(--Secondary-Teal)] text-sm leading-6 rounded-2xl">
+                <div className="bg-[var(--Other-White)] px-2 py-1 flex items-center gap-1 text-[var(--Secondary-Teal)] text-sm leading-6 rounded-2xl">
                   <p>{openedImage.id}</p>
                   <p>of</p>
                   <p>{carImages.length}</p>
@@ -190,7 +190,7 @@ const ImageGrid = () => {
                 onClick={() => handleModal(item)}
               />
               {isLast && (
-                <div className="bg-black/60 absolute w-full h-full top-0 left-0 text-[var(--other-White)] flex justify-center items-center">
+                <div className="bg-black/60 absolute w-full h-full top-0 left-0 text-[var(--Other-White)] flex justify-center items-center">
                   <p>+{otherImagesCount} more</p>
                 </div>
               )}

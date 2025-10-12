@@ -17,7 +17,7 @@ const Specifications: React.FC = () => {
   return (
     <div
       onClick={showDetails}
-      className="flex flex-col gap-3.75 px-4.75 py-5.25 bg-[var(--other-offWhite)]"
+      className="flex flex-col gap-3.75 px-4.75 py-5.25 bg-[var(--Other-offWhite)]"
     >
       <div className="flex justify-between items-center">
         <h3 className="text-xl leading-5.5 font-bold capitalize">body</h3>

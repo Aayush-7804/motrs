@@ -34,7 +34,7 @@ const page = () => {
             </h3>
             <Description />
           </div>
-          <div className="mb-8 bg-[var(--other-offWhite)]">
+          <div className="mb-8 bg-[var(--Other-offWhite)]">
             <h3 className="px-4.75 py-5.5 text-xl leading-5.5 font-bold capitalize">
               overview
             </h3>

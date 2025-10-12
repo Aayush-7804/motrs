@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import React, { useState } from "react";
 import SimilarItem from "./SimilarItem";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -50,11 +50,13 @@ const SimilarVehicle = () => {
           }}
           navigation={false} // Use custom navigation buttons
           pagination={{
-            el: ".custom-pagination",
+            el: ".custom-Vehicle-pagination",
             clickable: true,
-            bulletClass:
-              "custom-bullet w-[31px] h-1.5 bg-[var(--other-offWhite)] inline-block mx-1 cursor-pointer",
-            bulletActiveClass: "custom-bullet-active",
+            bulletClass: "bg-[var(--Other-offWhite)]", // Class for pagination bullets
+            bulletActiveClass: "bg-[var(--Secondary-Teal)]", // Class for active bullet
+            renderBullet: (index, className) => {
+              return `<div class="${className} w-[31px] h-1.5 inline-block mx-1 cursor-pointer"></div>`;
+            },
           }}
           onSwiper={setSwiper}
           className="mySwiper"
@@ -85,7 +87,7 @@ const SimilarVehicle = () => {
             />
           </svg>
         </button>
-        <div className="flex justify-center gap-2 custom-pagination " />
+        <div className="flex justify-center gap-2 custom-Vehicle-pagination" />
         <button className="max-[376px]:hidden px-0 py-0" onClick={goToNext}>
           <svg
             xmlns="http://www.w3.org/2000/svg"

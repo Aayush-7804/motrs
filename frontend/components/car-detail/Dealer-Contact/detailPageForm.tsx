@@ -15,7 +15,7 @@ const DetailPageForm = () => {
     <form className="p-7.5 space-y-2.5 border-t border-b border-[#ffffff33]">
       <div className="mb-5 flex flex-col gap-5">
         <h4 className="text-xl font-medium">Enquire about this car</h4>
-        <div className="px-3.75 leading-5.5 py-3.25 text-xs bg-[var(--other-White)] flex items-center justify-between">
+        <div className="px-3.75 leading-5.5 py-3.25 text-xs bg-[var(--Other-White)] flex items-center justify-between">
           <p></p>
           <p className="font-bold text-[var(--Primary-Muted-Blue)] ">
             Show Contect Number
@@ -42,7 +42,7 @@ const DetailPageForm = () => {
       </p>
       <div className="flex flex-col gap-2.5">
         <Button className="bg-[var(--Primary-Cherry-Red)]">Submit</Button>
-        <Button type="button" className="bg-[var(--other-White)] text-black">
+        <Button type="button" className="bg-[var(--Other-White)] text-black">
           Apply for finance
         </Button>
       </div>

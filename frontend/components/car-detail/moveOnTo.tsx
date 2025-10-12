@@ -22,7 +22,7 @@ const MoveOnTo = () => {
             />
           </svg>
         </div>
-        <div className="px-2 pt-1 pb-2 text-xs font-bold leading-4.5 border border-[var(--other-Grey)] flex flex-col gap-1">
+        <div className="px-2 pt-1 pb-2 text-xs font-bold leading-4.5 border border-[var(--Other-Grey)] flex flex-col gap-1">
           <h3 className="text-[var(--Primary-Muted-Blue)] capitalize">
             Previous Listing
           </h3>
@@ -61,7 +61,7 @@ const MoveOnTo = () => {
             />
           </svg>
         </div>
-        <div className="px-2 pt-1 pb-2 text-xs font-bold leading-4.5 border border-[var(--other-Grey)] flex flex-col gap-1">
+        <div className="px-2 pt-1 pb-2 text-xs font-bold leading-4.5 border border-[var(--Other-Grey)] flex flex-col gap-1">
           <h3 className="text-[var(--Primary-Muted-Blue)] capitalize">
             Previous Listing
           </h3>

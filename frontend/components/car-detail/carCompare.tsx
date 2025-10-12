@@ -4,7 +4,7 @@ import Button from "../common/Button";
 
 const CarCompare = () => {
   return (
-    <div className="px-7.5 max-[376px]:p-6.5 py-6 bg-[var(--other-White)] border border-[var(--Primary-Muted-Blue)] flex flex-col gap-6.25">
+    <div className="px-7.5 max-[376px]:p-6.5 py-6 bg-[var(--Other-White)] border border-[var(--Primary-Muted-Blue)] flex flex-col gap-6.25">
       <h3 className="text-xl font-medium text-[var(--Primary-Midnight-Blue)]">
         Compare Cars
       </h3>
@@ -23,7 +23,7 @@ const CarCompare = () => {
       </div>
       <Button
         disable
-        className="self-end justify-end bg-[var(--Primary-Cherry-Red)] text-[var(--other-White)] disabled:opacity-30"
+        className="self-end justify-end bg-[var(--Primary-Cherry-Red)] text-[var(--Other-White)] disabled:opacity-30"
       >
         Compare Selected
       </Button>

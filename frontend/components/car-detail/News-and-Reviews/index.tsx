@@ -6,19 +6,30 @@ import { Pagination } from "swiper/modules";
 
 const NewsNReviews = () => {
   return (
-    <div className="max-w-360 mx-auto py-15 px-10 max-[376px]:px-5 max-[376px]:py-7.5 bg-[var(--Primary-Midnight-Blue)] text-[var(--other-White)] flex flex-col gap-7.5 items-center">
+    <div className="max-w-360 mx-auto py-15 px-10 max-[376px]:px-5 max-[376px]:py-7.5 bg-[var(--Primary-Midnight-Blue)] text-[var(--Other-White)] flex flex-col gap-7.5 items-center">
       <h2 className="text-[50px] max-[376px]:text-3xl font-bold capitalize leading-13.75">
         news & reviews
       </h2>
       <div className="w-full overflow-x-auto">
         <Swiper
-          slidesPerView={3}
+          slidesPerView={1}
           spaceBetween={30}
+          breakpoints={{
+            768: {
+              slidesPerView: 1,
+            },
+            1024: {
+              slidesPerView: 2,
+            },
+            1440: {
+              slidesPerView: 3,
+            },
+          }}
           pagination={{
             clickable: true,
-            el: ".custom-pagination", // Reference the custom pagination container
-            bulletClass: "bg-[var(--Primary-Muted-Blue)]", // Class for pagination bullets
-            bulletActiveClass: "pagination-bullet-active", // Class for active bullet
+            el: ".custom-newReviews-pagination",
+            bulletClass: "bg-[var(--Primary-Muted-Blue)]",
+            bulletActiveClass: "bg-[var(--Secondary-Teal)]",
             renderBullet: (index, className) => {
               return `<div class="${className} w-8 h-1.5"></div>`;
             },
@@ -27,23 +38,18 @@ const NewsNReviews = () => {
           className="mySwiper"
         >
           <SwiperSlide>
-            <NewsNReviewItem />
+            <div className="w-full justify-items-center">
+              <NewsNReviewItem />
+            </div>
           </SwiperSlide>
           <SwiperSlide>
-            <NewsNReviewItem />
-          </SwiperSlide>
-          <SwiperSlide>
-            <NewsNReviewItem />
-          </SwiperSlide>
-          <SwiperSlide>
-            <NewsNReviewItem />
-          </SwiperSlide>
-          <SwiperSlide>
-            <NewsNReviewItem />
+            <div className="w-full justify-items-center">
+              <NewsNReviewItem />
+            </div>
           </SwiperSlide>
         </Swiper>
-        <div className="custom-pagination"></div>
       </div>
+      <div className="custom-newReviews-pagination flex justify-center gap-2.25"></div>
     </div>
   );
 };

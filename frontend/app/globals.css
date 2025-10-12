@@ -10,9 +10,9 @@
   --Secondary-Font: #686868;
   --Font-Disabled-Font: #A7A7A7;
   --Disabled-Font: #A7A7A7;
-  --other-offWhite: #F5F7F2;
-  --other-Grey: #ECEBEA;
-  --other-White: #FFFFFF;
+  --Other-offWhite: #F5F7F2;
+  --Other-Grey: #ECEBEA;
+  --Other-White: #FFFFFF;
   --Notification-Successful: #009706;
 }
 
@@ -37,9 +37,11 @@ body {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-.custom-pagination .custom-bullet.custom-bullet-active {
+.custom-Vehicle-pagination .custom-Vehicle-bullet.custom-bullet-active {
   background-color: var(--Secondary-Teal) !important;
 }
+
+.custom-newReviews-pagination 
 
 @media (max-width: 375px) {
   .swiper-slide {

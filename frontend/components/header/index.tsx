@@ -15,7 +15,7 @@ const navItems: string[] = [
 
 const Header = () => {
   return (
-    <header className="sticky top-0 bg-[var(--Primary-Midnight-Blue)] text-[var(--other-White)] z-100">
+    <header className="sticky top-0 bg-[var(--Primary-Midnight-Blue)] text-[var(--Other-White)] z-100">
       <div className="max-w-360 h-25 px-10 py-5 max-[769px]:p-0 max-[769px]:h-20 mx-auto flex justify-between items-center max-[769px]:justify-around">
         <div className="min-[769px]:hidden">
           <HEADERBar />
@@ -39,7 +39,7 @@ const Header = () => {
           <div className="min-[769px]:hidden">
             <HEADERSearchBar />
           </div>
-          <div className="max-[769px]:hidden flex items-center gap-6 text-[var(--other-offWhite)]">
+          <div className="max-[769px]:hidden flex items-center gap-6 text-[var(--Other-offWhite)]">
             <HEADERMagnifying />
             <RegHeart color="#F5F7F2" />
           </div>

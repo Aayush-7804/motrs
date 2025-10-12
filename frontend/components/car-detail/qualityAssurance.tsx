@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const QualityAssurance = () => {
   return (
-    <div className="min-[376px]:space-y-2.5 leading-5.5 text-[var(--other-White)]">
+    <div className="min-[376px]:space-y-2.5 leading-5.5 text-[var(--Other-White)]">
       <div className="flex items-center gap-3.5">
         <Image
           src={"/car-details-images/BrandLogo.jpg"}
@@ -19,7 +19,7 @@ const QualityAssurance = () => {
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua.
       </p>
-      <Button className="min-[376px]:border max-[376px]:px-0 border-[var(-other-White)]">
+      <Button className="min-[376px]:border max-[376px]:px-0 border-[var(-Other-White)]">
         Find Out More
       </Button>
     </div>

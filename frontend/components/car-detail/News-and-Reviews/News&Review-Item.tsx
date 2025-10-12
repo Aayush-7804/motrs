@@ -5,7 +5,7 @@ import React from "react";
 const NewsNReviewItem = () => {
   return (
     <div className="flex min-w-106 max-[376px]:min-w-full max-w-106 flex-col gap-6">
-      <div className="relative h-[377px] overflow-hidden">
+      <div className="relative h-[377px] max-[376px]:h-[300px] overflow-hidden">
         <Image
           src={"/news/news1.jpg"}
           alt="news-image"
@@ -29,7 +29,7 @@ const NewsNReviewItem = () => {
             ad minim veniam
           </p>
         </div>
-        <Button className="border border-[var(--other-White)]">
+        <Button className="border border-[var(--Other-White)]">
           Read More
         </Button>
       </div>

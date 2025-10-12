@@ -5,7 +5,7 @@ import { BsArrowsFullscreen } from "react-icons/bs";
 const ImageSvgs: React.FC<{onClick?: () => void}> = ({onClick}) => {
   return (
     <div>
-      <div className="absolute z-10 top-3 right-3.75 px-3.5 py-1.5 rounded-[30px] bg-[var(--other-White)] opacity-90 flex items-center gap-4">
+      <div className="absolute z-10 top-3 right-3.75 px-3.5 py-1.5 rounded-[30px] bg-[var(--Other-White)] opacity-90 flex items-center gap-4">
         <RegHeart />
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -51,10 +51,10 @@ const ImageSvgs: React.FC<{onClick?: () => void}> = ({onClick}) => {
           />
         </svg>
       </div>
-      <div className="absolute z-10 bottom-3 right-3.75 pl-3.5 pr-3 pb-0.75 pt-1.25 text-[var(--Secondary-Teal)] bg-[var(--other-White)] opacity-90 font-bold leading-6 rounded-[30px]">
+      <div className="absolute z-10 bottom-3 right-3.75 pl-3.5 pr-3 pb-0.75 pt-1.25 text-[var(--Secondary-Teal)] bg-[var(--Other-White)] opacity-90 font-bold leading-6 rounded-[30px]">
         360°
       </div>
-      <div className={`${onClick ? "block" : "hidden"} absolute z-10 bottom-3 left-3.75 p-1.25 text-[var(--Secondary-Teal)] font-bold bg-[var(--other-White)] rounded-[5px] opacity-90`}>
+      <div className={`${onClick ? "block" : "hidden"} absolute z-10 bottom-3 left-3.75 p-1.25 text-[var(--Secondary-Teal)] font-bold bg-[var(--Other-White)] rounded-[5px] opacity-90`}>
         <BsArrowsFullscreen onClick={onClick} />
       </div>
     </div>

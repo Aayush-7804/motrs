@@ -75,11 +75,11 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
       }
       modules={[Pagination]}
       pagination={{
-        el: ".swiper-pagination",
+        el: ".imageSwiper-pagination",
         dynamicBullets: true,
         clickable: true,
         renderBullet: (index, className) => {
-            return `<div class="${className}" style="width: 32px; height: 6px; background-color: var(--Primary-Muted-Blue);"></div>`;
+            return `<div class="${className}" style="width: 6px; aspect-ratio: 1 / 1; background-color: var(--Other-White);"></div>`;
           },
       }}
       onSlideChange={handleSlideChange}
@@ -101,7 +101,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
             
         </SwiperSlide>
       ))}
-      <div className="swiper-pagination"></div>
+      <div className="imageSwiper-pagination absolute z-30"></div>
       {!mobileModal && <ImageSvgs onClick={() => fullScreen(currentImage)} />}
     </Swiper>
   );

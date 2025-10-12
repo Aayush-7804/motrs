@@ -10,7 +10,7 @@ const footerparts: string[] = [
 
 const Footer = () => {
   return (
-    <div className="bg-[var(--Primary-Midnight-Blue)] text-[var(--other-White)] max-[1441px]:px-10 max-[376px]:px-5">
+    <div className="bg-[var(--Primary-Midnight-Blue)] text-[var(--Other-White)] max-[1441px]:px-10 max-[376px]:px-5">
       <div className="max-w-360 mx-auto py-10.5 flex flex-col gap-6.5">
         <div className="flex max-[769px]:flex-col gap-8">
           <ul className="w-full text-lg font-semibold flex flex-col gap-4">

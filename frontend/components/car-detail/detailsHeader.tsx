@@ -7,11 +7,11 @@ const DetailsHeader = () => {
   return (
     <div className="max-w-360 mx-auto">
       <div className="min-[376px]:hidden flex items-center justify-between mb-3.75">
-        <button className="w-21.5 h-5.75 bg-[var(--Secondary-Teal)] text-[var(--other-White)] flex justify-center items-center gap-1">
+        <button className="w-21.5 h-5.75 bg-[var(--Secondary-Teal)] text-[var(--Other-White)] flex justify-center items-center gap-1">
           <span className="text-[10px]">Great Price</span>
           <InfoMark />
         </button>
-        <div className="px-3 py-2.75 h-5.75 rounded-[26px] leading-4.5 text-xs font-bold bg-[var(--other-offWhite)] text-[var(--Primary-Midnight-Blue)] inline-flex items-center gap-1.75">
+        <div className="px-3 py-2.75 h-5.75 rounded-[26px] leading-4.5 text-xs font-bold bg-[var(--Other-offWhite)] text-[var(--Primary-Midnight-Blue)] inline-flex items-center gap-1.75">
           <Eye />
           <p>48 Viewing Now</p>
         </div>
@@ -22,7 +22,7 @@ const DetailsHeader = () => {
             2013 Nissan Juke 1.6 Acenta
           </h1>
           <div className="flex items-center gap-5">
-            <button className="max-[376px]:hidden w-21.5 h-5.75 bg-[var(--Secondary-Teal)] text-[var(--other-White)] flex justify-center items-center gap-1">
+            <button className="max-[376px]:hidden w-21.5 h-5.75 bg-[var(--Secondary-Teal)] text-[var(--Other-White)] flex justify-center items-center gap-1">
               <span className="text-[10px] leading-2.5">Great Price</span>
               <InfoMark />
             </button>
@@ -47,7 +47,7 @@ const DetailsHeader = () => {
               <SupInfoMark />
             </div>
           </div>
-          <Button className="text-[var(--other-White)] bg-[var(--Primary-Cherry-Red)]">
+          <Button className="text-[var(--Other-White)] bg-[var(--Primary-Cherry-Red)]">
             Enquire Now
           </Button>
         </div>

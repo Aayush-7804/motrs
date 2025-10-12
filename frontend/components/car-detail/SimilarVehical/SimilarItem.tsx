@@ -10,9 +10,9 @@ const SimilarItem: React.FC<{ item: number; rank?: string }> = ({
   rank,
 }) => {
   return (
-    <div className="relative w-[310px] h-[521px] border-2 border-[var(--other-offWhite)] bg-[var(--other-White)]">
+    <div className="relative w-[310px] h-[521px] border-2 border-[var(--Other-offWhite)] bg-[var(--Other-White)]">
       <small
-        className={`absolute z-30 top-3.5 left-0 px-2.5 py-0.75 capitalize text-[var(--other-White)] ${
+        className={`absolute z-30 top-3.5 left-0 px-2.5 py-0.75 capitalize text-[var(--Other-White)] ${
           rank === "on special"
             ? "bg-[var(--Secondary-Dirty-Red)]"
             : "bg-[var(--Secondary-Teal)]"
