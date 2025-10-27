@@ -1,0 +1,61 @@
+import React, { useState } from "react";
+
+const items: { title: string; value: string }[] = [
+  { title: "Body Type", value: "SUV" },
+  { title: "Doors", value: "4135 mm" },
+  { title: "Length", value: "0 mm" },
+  { title: "Width", value: "1565 mm" },
+  { title: "CO₂ Emissions (Average) g/km", value: "138" },
+  { title: "On-Board Computer / Multi-Information Display", value: "STD" },
+];
+const Specifications: React.FC = () => {
+  const [showSpecificationsDetail, setShowSpecificationsDetail] =
+    useState(false);
+  const showDetails = () => {
+    setShowSpecificationsDetail((prevShowDetails) => !prevShowDetails);
+  };
+  return (
+    <div
+      onClick={showDetails}
+      className="flex flex-col gap-3.75 px-4.75 py-5.25 bg-[var(--Other-offWhite)]"
+    >
+      <div className="flex justify-between items-center">
+        <h3 className="text-xl leading-5.5 font-bold capitalize">body</h3>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
+          fill="none"
+          className={`transition-all duration-100 ${
+            showSpecificationsDetail ? "rotate-180" : "rotate-0"
+          }`}
+        >
+          <path
+            d="M5 7.5L10 12.5L15 7.5"
+            stroke="black"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </div>
+      {showSpecificationsDetail && (
+        <div className="flex flex-col">
+          {items.map((item, index) => (
+            <div key={index} className="flex items-center gap-2.5 leading-8.5">
+              <p className="flex-2/3 text-[var(--Secondary-Font)] whitespace-nowrap text-ellipsis overflow-hidden line-clamp-1">
+                {item.title}
+              </p>
+              <p className="flex-1/3 font-bold text-[var(--Primary-Font)] whitespace-nowrap text-ellipsis overflow-hidden line-clamp-1">
+                {item.value}
+              </p>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default Specifications;

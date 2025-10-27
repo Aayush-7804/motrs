@@ -1,103 +1,66 @@
+import React from "react";
+import Navigation from "@/components/car-detail/navigation";
+import ImageGrid from "@/components/car-detail/Image-grid";
+import DetailsHeader from "@/components/car-detail/detailsHeader";
 import Image from "next/image";
+import QualityAssurance from "@/components/car-detail/qualityAssurance";
+import CarCompare from "@/components/car-detail/carCompare";
+import Overview from "@/components/car-detail/overview";
+import Description from "@/components/car-detail/description";
+import DetailsSpecification from "@/components/car-detail/Details-Specification";
+import FinanceCalculator from "@/components/car-detail/financeCalculator";
+import Subscribe from "@/components/car-detail/subscribe";
+import DealerContact from "@/components/car-detail/Dealer-Contact";
+import SimilarVehicle from "@/components/car-detail/SimilarVehical";
+import MoveOnTo from "@/components/car-detail/moveOnTo";
+import NewsNReviews from "@/components/car-detail/News-and-Reviews";
 
-export default function Home() {
+const page = () => {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <main>
+      <Navigation />
+      <div className="flex flex-col min-[376px]:flex-col-reverse">
+        <ImageGrid />
+        <DetailsHeader />
+      </div>
+      <div className="max-w-360 mx-auto max-[1441px]:px-9.75 max-[376px]:px-5 mb-10 grid grid-cols-[repeat(2,1fr)_484px] max-[1025px]:grid-cols-[repeat(2,1fr)_334px] max-[769px]:block max-[769px]:space-y-8 gap-10">
+        <div className="col-span-2 max-[376px]:flex flex-col">
+          <div className="mb-9.25">
+            <h3 className="text-xl font-bold capitalize leading-5.5 mb-5.75">
+              description
+            </h3>
+            <Description />
+          </div>
+          <div className="mb-8 bg-[var(--Other-offWhite)]">
+            <h3 className="px-4.75 py-5.5 text-xl leading-5.5 font-bold capitalize">
+              overview
+            </h3>
+            <Overview />
+          </div>
+          <DetailsSpecification />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        <div className="space-y-8">
+          <DealerContact />
+          <div className="px-4.25 py-5 flex gap-3 bg-gradient-to-r from-[#02253A] from-[-28.8%]  via-[#008291] via-[42.68%] to-[#2AA295] to-[95.49%]">
+            <Image
+              src={"/car-details-images/BrandLogo.jpg"}
+              alt="Brand-logo"
+              width={500}
+              height={500}
+              className="w-20 h-20 max-[376px]:hidden"
+            />
+            <QualityAssurance />
+          </div>
+          <CarCompare />
+        </div>
+      </div>
+      <FinanceCalculator />
+      <SimilarVehicle />
+      <MoveOnTo />
+      <NewsNReviews />
+      <Subscribe />
+    </main>
   );
-}
+};
+
+export default page;
