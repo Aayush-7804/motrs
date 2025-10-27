@@ -63,9 +63,7 @@ const SimilarVehicle = () => {
         >
           {items.map((item) => (
             <SwiperSlide key={item.id} style={{ width: "fit-content" }}>
-              <div className="min-[376px]:w-full min-[376px]:flex justify-center">
                 <SimilarItem item={item.id} />
-              </div>
             </SwiperSlide>
           ))}
         </Swiper>

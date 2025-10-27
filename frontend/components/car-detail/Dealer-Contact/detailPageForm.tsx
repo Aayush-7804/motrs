@@ -34,7 +34,7 @@ const DetailPageForm = () => {
         />
       ))}
       <div className="text-sm flex items-center gap-3.25">
-        <FormInput type="checkbox" className="flex flex-row-reverse items-center gap-3.25" formName="teams-condition" name="I agree to receive general emails and product offers." />
+        <FormInput type="checkbox" className="relative flex flex-row-reverse items-center gap-3.25" formName="teams-condition" name="I agree to receive general emails and product offers." />
       </div>
       <p className="text-xs leading-4.5">
         Read how we protect and process your personal information{" "}

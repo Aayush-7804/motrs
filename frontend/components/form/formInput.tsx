@@ -40,10 +40,31 @@ const FormInput: React.FC<{
         type={type || "text"}
         className={`${
           type === "checkbox" || type === "radio"
-            ? "checked:bg-[var(--Secondary-Teal)] appearance-none w-6 h-6 outline-0 border border-[var(--Other-Grey)] rounded-[5px]"
+            ? "peer appearance-none w-6 h-6 border border-[var(--Other-Grey)] rounded-[5px] checked:bg-[var(--Secondary-Teal)] checked:border-[var(--Secondary-Teal)] relative"
             : "w-full px-3.75 py-3.25"
-        }  text-sm bg-[var(--Other-White)] text-black outline-0`}
+        } text-sm bg-[var(--Other-White)] text-black outline-0`}
       />
+      {type === "checkbox" && (
+        <span className="absolute left-1 top-1/2 -translate-y-1/2 pointer-events-none text-white text-sm opacity-0 peer-checked:opacity-100">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <path
+              d="M20 6L9 17l-5-5"
+              fill="none"
+              stroke="#FFFFFF"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </span>
+      )}
     </div>
   );
 };

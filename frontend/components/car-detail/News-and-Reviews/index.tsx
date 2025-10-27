@@ -13,16 +13,22 @@ const NewsNReviews = () => {
       <div className="w-full overflow-x-auto">
         <Swiper
           slidesPerView={1}
-          spaceBetween={30}
           breakpoints={{
+            375: {
+              slidesPerView: 1,
+              spaceBetween: 10,
+            },
             768: {
               slidesPerView: 1,
+              spaceBetween: 10,
             },
             1024: {
               slidesPerView: 2,
+              spaceBetween: 40,
             },
             1440: {
               slidesPerView: 3,
+              spaceBetween: 40,
             },
           }}
           pagination={{
@@ -37,6 +43,16 @@ const NewsNReviews = () => {
           modules={[Pagination]}
           className="mySwiper"
         >
+          <SwiperSlide>
+            <div className="w-full justify-items-center">
+              <NewsNReviewItem />
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="w-full justify-items-center">
+              <NewsNReviewItem />
+            </div>
+          </SwiperSlide>
           <SwiperSlide>
             <div className="w-full justify-items-center">
               <NewsNReviewItem />

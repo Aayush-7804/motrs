@@ -5,7 +5,7 @@ import InfoLabels from "../common/InfoLabels";
 
 const DetailsHeader = () => {
   return (
-    <div className="max-w-360 mx-auto">
+    <div className="mx-auto px-9.75 max-[376px]:px-5 min-[1025px]:w-360 max-[1441px]:m-0">
       <div className="min-[376px]:hidden flex items-center justify-between mb-3.75">
         <button className="w-21.5 h-5.75 bg-[var(--Secondary-Teal)] text-[var(--Other-White)] flex justify-center items-center gap-1">
           <span className="text-[10px]">Great Price</span>

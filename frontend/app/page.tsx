@@ -19,11 +19,8 @@ const page = () => {
   return (
     <main>
       <Navigation />
-      <div className="max-[376px]:hidden max-[1441px]:px-9.75">
-        <DetailsHeader />
-      </div>
-      <ImageGrid />
-      <div className="min-[376px]:hidden max-[376px]:px-5">
+      <div className="flex flex-col min-[376px]:flex-col-reverse">
+        <ImageGrid />
         <DetailsHeader />
       </div>
       <div className="max-w-360 mx-auto max-[1441px]:px-9.75 max-[376px]:px-5 mb-10 grid grid-cols-[repeat(2,1fr)_484px] max-[1025px]:grid-cols-[repeat(2,1fr)_334px] max-[769px]:block max-[769px]:space-y-8 gap-10">

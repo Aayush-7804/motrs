@@ -30,9 +30,9 @@ const FinanceCalculator = () => {
             <path
               d="M7 10.5L14 17.5L21 10.5"
               stroke="white"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
           </svg>
           <svg

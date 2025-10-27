@@ -27,9 +27,9 @@ const Footer = () => {
                   <path
                     d="M5 7.5L10 12.5L15 7.5"
                     stroke="white"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                 </svg>
               </li>
@@ -63,7 +63,7 @@ const Footer = () => {
                 viewBox="0 0 26 26"
                 fill="none"
               >
-                <g clip-path="url(#clip0_11859_9934)">
+                <g clipPath="url(#clip0_11859_9934)">
                   <path
                     d="M26 13.0003C26 20.1803 20.1797 26.0007 12.9997 26.0007C5.82031 26 0 20.1797 0 13.0003C0 5.82031 5.82031 0 13.0003 0C20.1803 0 26.0007 5.82031 26.0007 13.0003H26Z"
                     fill="white"
@@ -86,7 +86,7 @@ const Footer = () => {
                 viewBox="0 0 26 26"
                 fill="none"
               >
-                <g clip-path="url(#clip0_11859_9937)">
+                <g clipPath="url(#clip0_11859_9937)">
                   <path
                     d="M26 13.0003C26 20.1803 20.1797 26.0007 12.9997 26.0007C5.82031 26 0 20.1797 0 13.0003C0 5.82031 5.82031 0 13.0003 0C20.1803 0 26.0007 5.82031 26.0007 13.0003H26Z"
                     fill="white"
@@ -109,7 +109,7 @@ const Footer = () => {
                 viewBox="0 0 26 26"
                 fill="none"
               >
-                <g clip-path="url(#clip0_11859_9940)">
+                <g clipPath="url(#clip0_11859_9940)">
                   <path
                     d="M26 13.0003C26 20.1803 20.1797 26.0007 12.9997 26.0007C5.82031 26 0 20.1797 0 13.0003C0 5.82031 5.82031 0 13.0003 0C20.1803 0 26.0007 5.82031 26.0007 13.0003H26Z"
                     fill="white"

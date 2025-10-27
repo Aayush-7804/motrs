@@ -72,7 +72,7 @@ const SimilarItem: React.FC<{ item: number; rank?: string }> = ({
             formName="compare"
             name="Compare"
             type="checkbox"
-            className="flex flex-row-reverse items-center text-sm leading-5.5 justify-end gap-3.25"
+            className="relative flex flex-row-reverse items-center text-sm leading-5.5 justify-end gap-3.25"
           />
           <Button className="w-[139px] text-[var(--Primary-Muted-Blue)] border border-[var(--Primary-Muted-Blue)]">
             Enquire

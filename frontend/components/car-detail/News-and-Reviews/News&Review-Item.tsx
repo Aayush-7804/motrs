@@ -4,14 +4,14 @@ import React from "react";
 
 const NewsNReviewItem = () => {
   return (
-    <div className="flex min-w-106 max-[376px]:min-w-full max-w-106 flex-col gap-6">
-      <div className="relative h-[377px] max-[376px]:h-[300px] overflow-hidden">
+    <div className="flex min-w-[427px] max-w-[427px] max-[376px]:min-w-[335px] flex-col gap-6">
+      <div className="relative h-[377px] max-[376px]:h-[300px] max-[769px]:h-[325px] overflow-hidden">
         <Image
           src={"/news/news1.jpg"}
           alt="news-image"
           width={500}
           height={500}
-          className="h-full"
+          className="h-full object-cover"
         />
         <div className="absolute top-7.5 left-0 text-sm leading-5.5 px-2.5 py-0.75 bg-[var(--Primary-Midnight-Blue)]">
           <p>Adventure</p>

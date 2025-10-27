@@ -30,18 +30,11 @@
   }
 }
 
-
 body {
   margin: 0px;
   padding: 0px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
-
-.custom-Vehicle-pagination .custom-Vehicle-bullet.custom-bullet-active {
-  background-color: var(--Secondary-Teal) !important;
-}
-
-.custom-newReviews-pagination 
 
 @media (max-width: 375px) {
   .swiper-slide {

@@ -16,9 +16,9 @@ const MoveOnTo = () => {
             <path
               d="M8 1L1 8L8 15"
               stroke="#02253A"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
           </svg>
         </div>
@@ -55,9 +55,9 @@ const MoveOnTo = () => {
             <path
               d="M1 15L8 8L1 1"
               stroke="#02253A"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
           </svg>
         </div>

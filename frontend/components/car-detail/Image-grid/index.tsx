@@ -6,21 +6,21 @@ import DealerContact from "../Dealer-Contact";
 import ImageSlider from "./imageSlider";
 import ImageSvgs from "./imageSvgs";
 
-type imageType = { id: number; src: string };
+type imageType = string;
 
 const carImages: imageType[] = [
-  { id: 1, src: "/news/news1.jpg" },
-  { id: 2, src: "/car-details-images/image2.jpg" },
-  { id: 3, src: "/car-details-images/image3.jpg" },
-  { id: 4, src: "/car-details-images/image4.jpg" },
-  { id: 5, src: "/car-details-images/image4.jpg" },
-  { id: 6, src: "/car-details-images/image4.jpg" },
-  { id: 7, src: "/car-details-images/image4.jpg" },
-  { id: 8, src: "/car-details-images/image4.jpg" },
-  { id: 9, src: "/car-details-images/image4.jpg" },
-  { id: 10, src: "/car-details-images/image4.jpg" },
-  { id: 11, src: "/car-details-images/image4.jpg" },
-  { id: 12, src: "/car-details-images/image4.jpg" },
+  "/news/news1.jpg",
+  "/car-details-images/image2.jpg",
+  "/car-details-images/image3.jpg",
+  "/car-details-images/image4.jpg",
+  "/car-details-images/image4.jpg",
+  "/car-details-images/image4.jpg",
+  "/car-details-images/image4.jpg",
+  "/car-details-images/image4.jpg",
+  "/car-details-images/image4.jpg",
+  "/car-details-images/image4.jpg",
+  "/car-details-images/image4.jpg",
+  "/car-details-images/image4.jpg",
 ];
 
 const ImageGrid = () => {
@@ -43,7 +43,7 @@ const ImageGrid = () => {
 
   const handleImage = (item: imageType | null) => {
     setOpenImage(item);
-  }
+  };
 
   return (
     <>
@@ -93,7 +93,7 @@ const ImageGrid = () => {
                   </p>
                   <div className="relative w-full h-[613px] max-[1025px]:h-[413px]">
                     <Image
-                      src={openedImage.src}
+                      src={openedImage}
                       alt="open"
                       width={500}
                       height={500}
@@ -102,11 +102,11 @@ const ImageGrid = () => {
                     <ImageSvgs />
                   </div>
                   <div className="flex w-full gap-2.5 overflow-x-auto outline-0">
-                    {carImages.map((item) => (
-                      <div key={item.id}>
+                    {carImages.map((item,index) => (
+                      <div key={index}>
                         <Image
-                          src={item.src}
-                          alt={`car image ${item.id}`}
+                          src={item}
+                          alt={`car image ${item}`}
                           width={500}
                           height={300}
                           className="min-w-[127px] object-cover"
@@ -124,7 +124,7 @@ const ImageGrid = () => {
             <div className="min-[376px]:hidden relative">
               <div className="absolute top-0 w-full flex items-center justify-between p-3">
                 <div className="bg-[var(--Other-White)] px-2 py-1 flex items-center gap-1 text-[var(--Secondary-Teal)] text-sm leading-6 rounded-2xl">
-                  <p>{openedImage.id}</p>
+                  <p>{carImages.indexOf(openedImage) + 1}</p>
                   <p>of</p>
                   <p>{carImages.length}</p>
                 </div>
@@ -154,13 +154,12 @@ const ImageGrid = () => {
               </div>
               <div className="w-full h-dvh flex items-center">
                 <ImageSlider
-                initialImage={openedImage}
-                images={carImages}
-                currentImageShown={handleImage}
-                mobileModal
-              />
+                  initialImage={openedImage}
+                  images={carImages}
+                  currentImageShown={handleImage}
+                  mobileModal
+                />
               </div>
-              
             </div>
           </Modal>
         </>
@@ -169,8 +168,8 @@ const ImageGrid = () => {
       <div className="relative overflow-hidden max-w-360 mx-auto mb-15 max-[1441px]:mx-9.75 max-[376px]:m-0 max-[376px]:mb-5 grid grid-cols-5 gap-0.5 max-[769px]:flex ">
         <div className="max-[769px]:hidden relative min-w-full min-h-full col-span-2 row-span-2 ">
           <Image
-            src={carImages[0].src}
-            alt={"image-" + carImages[0].id}
+            src={carImages[0]}
+            alt={"image-" + carImages[0]}
             width={500}
             height={500}
             className="w-full h-full object-cover"
@@ -182,8 +181,8 @@ const ImageGrid = () => {
           return (
             <div key={index} className="max-[769px]:hidden relative min-w-full">
               <Image
-                src={item.src}
-                alt={"image-" + item.id}
+                src={item}
+                alt={"image-" + item}
                 width={500}
                 height={500}
                 className="w-full h-full object-cover"

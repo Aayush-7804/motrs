@@ -5,10 +5,10 @@ import ImageSvgs from "./imageSvgs";
 import { Pagination } from "swiper/modules";
 
 interface ImageSliderProps {
-  images: { id: number; src: string }[];
-  fullScreen?: (image: { id: number; src: string }) => void;
-  currentImageShown?: (image: { id: number; src: string }) => void;
-  initialImage?: { id: number; src: string };
+  images: string [];
+  fullScreen?: ((image: string) => void) | undefined;
+  currentImageShown?: (image: string ) => void;
+  initialImage?: string;
   mobileModal?: boolean;
 }
 
@@ -22,7 +22,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
   const [currentIndex, setCurrentIndex] = useState(() => {
     if (initialImage) {
       const index = images.findIndex(
-        (img) => img.id === initialImage.id && img.src === initialImage.src
+        (img) => img === initialImage
       );
       return index !== -1 ? index : 0;
     }
@@ -33,7 +33,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
   useEffect(() => {
     if (initialImage && swiperRef.current?.swiper) {
       const index = images.findIndex(
-        (img) => img.id === initialImage.id && img.src === initialImage.src
+        (img) => img === initialImage
       );
       if (index !== -1) {
         setCurrentIndex(index);
@@ -69,7 +69,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
         initialImage
           ? images.findIndex(
               (img) =>
-                img.id === initialImage.id && img.src === initialImage.src
+                img === initialImage
             )
           : 0
       }
@@ -90,7 +90,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
         <SwiperSlide key={index}>
           <div className="max-[376px]:w-dvw max-[769px]:h-[473px] max-[376px]:h-[253px]">
             <Image
-              src={image.src}
+              src={image}
               alt={`Slide ${index + 1}`}
               width={768}
               height={432}

@@ -20,7 +20,7 @@ const Description = () => {
       </p>
       <p
         onClick={() => setRead((prevRead) => !prevRead)}
-        className="text-sm font-semibold text-[var(--Secondary-Teal)] leading-4.5"
+        className="text-sm font-semibold text-[var(--Secondary-Teal)] leading-4.5 cursor-pointer w-fit"
       >
         Read {read ? "Less" : "More"}
       </p>
