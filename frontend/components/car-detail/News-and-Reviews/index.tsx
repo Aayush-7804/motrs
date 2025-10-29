@@ -3,8 +3,9 @@ import React from "react";
 import NewsNReviewItem from "./News&Review-Item";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
+import { news } from "@/types/news";
 
-const NewsNReviews = () => {
+const NewsNReviews: React.FC<{ news: news[] }> = ({ news }) => {
   return (
     <div className="max-w-360 mx-auto py-15 px-10 max-[376px]:px-5 max-[376px]:py-7.5 bg-[var(--Primary-Midnight-Blue)] text-[var(--Other-White)] flex flex-col gap-7.5 items-center">
       <h2 className="text-[50px] max-[376px]:text-3xl font-bold capitalize leading-13.75">
@@ -43,26 +44,13 @@ const NewsNReviews = () => {
           modules={[Pagination]}
           className="mySwiper"
         >
-          <SwiperSlide>
-            <div className="w-full justify-items-center">
-              <NewsNReviewItem />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="w-full justify-items-center">
-              <NewsNReviewItem />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="w-full justify-items-center">
-              <NewsNReviewItem />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="w-full justify-items-center">
-              <NewsNReviewItem />
-            </div>
-          </SwiperSlide>
+          {news.map((item, index) => (
+            <SwiperSlide key={index}>
+              <div className="w-full">
+                <NewsNReviewItem news={item} />
+              </div>
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
       <div className="custom-newReviews-pagination flex justify-center gap-2.25"></div>

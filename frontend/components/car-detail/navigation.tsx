@@ -2,27 +2,31 @@ import React from "react";
 import { Eye, LeftArrow } from "../svg";
 import InfoLabels from "../common/InfoLabels";
 import Button from "../common/Button";
+import Link from "next/link";
+import { header } from "@/types/header";
 
-const Navigation = () => {
+const Navigation: React.FC<{details: header}> = ({details}) => {
   return (
     <div className="max-w-360 mx-auto max-[1441px]:px-9.75 max-[376px]:px-5 max-[730px]:bg-[var(--Other-offWhite)] text-[var(--Primary-Font)] flex justify-between items-center">
       <div className="flex items-center gap-2.5 max-[730px]:w-full max-[730px]:justify-between">
-        <div className="flex items-center min-[769]:gap-2.5 max-[769px]:flex-col max-[769px]:items-start">
+        <div className="flex items-center min-[769px]:gap-2.5 max-[769px]:flex-col max-[769px]:items-start">
           <Button className="whitespace-nowrap w-30.25 min-[1px]:px-0 h-12.5 text-[var(--Primary-Muted-Blue)] inline-flex items-center gap-2.5">
             <LeftArrow />
-            <p className="leading-4.5">Back to listing</p>
+            <Link href={"/"}>
+              <p className="leading-4.5">Back to listing</p>
+            </Link>
           </Button>
           <div className="max-[730px]:hidden">
             <InfoLabels
               items={[
                 "Home",
-                "Shop Cars",
-                "Durban",
-                "Hyundai",
-                "Tucson",
-                "2017 Hyundai Tucson 2.0CRDi Elite",
+                details.carCondition,
+                details.carBrand,
+                details.carRange,
+                `${details.carRange} ${details.carModel}`,
               ]}
               className="leading-5.5 last:font-bold text-sm max-[769px]:text-xs"
+              clickable
             />
           </div>
         </div>

@@ -3,8 +3,12 @@
 import React, { useState } from "react";
 import Button from "../../common/Button";
 import Specifications from "./Specifications";
+import { carSpecifications, specificationType } from "@/types/specifications";
+import { specificationArrayTitle } from "@/helper/object-manager";
 
-const DetailsSpecification = () => {
+const DetailsSpecification: React.FC<{
+  DS: specificationType;
+}> = ({ DS }) => {
   const [showSpecifications, setShowSpecifications] = useState(false);
 
   const show = () => {
@@ -22,7 +26,10 @@ const DetailsSpecification = () => {
         </Button>
       ) : (
         <div className="space-y-5">
-          <Specifications />
+          {DS.map((spec: carSpecifications, index: number) => {
+            const title = specificationArrayTitle(index);
+            return <Specifications key={index} spec={spec} title={title} />;
+          })}
         </div>
       )}
     </>

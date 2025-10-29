@@ -1,26 +1,21 @@
+import { body, EnD, EnE, features } from "@/types/specifications";
+import { objectEntries } from "@/helper/handlers";
 import React, { useState } from "react";
 
-const items: { title: string; value: string }[] = [
-  { title: "Body Type", value: "SUV" },
-  { title: "Doors", value: "4135 mm" },
-  { title: "Length", value: "0 mm" },
-  { title: "Width", value: "1565 mm" },
-  { title: "CO₂ Emissions (Average) g/km", value: "138" },
-  { title: "On-Board Computer / Multi-Information Display", value: "STD" },
-];
-const Specifications: React.FC = () => {
+const Specifications: React.FC<{
+  spec: body | EnD | EnE | features;
+  title: string;
+}> = ({ spec, title }) => {
   const [showSpecificationsDetail, setShowSpecificationsDetail] =
     useState(false);
   const showDetails = () => {
     setShowSpecificationsDetail((prevShowDetails) => !prevShowDetails);
   };
+  const entries = objectEntries(spec);
   return (
-    <div
-      onClick={showDetails}
-      className="flex flex-col gap-3.75 px-4.75 py-5.25 bg-[var(--Other-offWhite)]"
-    >
-      <div className="flex justify-between items-center">
-        <h3 className="text-xl leading-5.5 font-bold capitalize">body</h3>
+    <div className="flex flex-col gap-3.75 px-4.75 py-5.25 bg-[var(--Other-offWhite)]">
+      <div onClick={showDetails} className="flex justify-between items-center">
+        <h3 className="text-xl leading-5.5 font-bold capitalize">{title}</h3>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="20"
@@ -42,13 +37,13 @@ const Specifications: React.FC = () => {
       </div>
       {showSpecificationsDetail && (
         <div className="flex flex-col">
-          {items.map((item, index) => (
-            <div key={index} className="flex items-center gap-2.5 leading-8.5">
+          {entries.map(([key, value]) => (
+            <div key={key} className="flex items-center gap-2.5 leading-8.5">
               <p className="flex-2/3 text-[var(--Secondary-Font)] whitespace-nowrap text-ellipsis overflow-hidden line-clamp-1">
-                {item.title}
+                {key}
               </p>
               <p className="flex-1/3 font-bold text-[var(--Primary-Font)] whitespace-nowrap text-ellipsis overflow-hidden line-clamp-1">
-                {item.value}
+                {value}
               </p>
             </div>
           ))}

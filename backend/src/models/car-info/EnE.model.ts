@@ -10,7 +10,7 @@ import {
 import { CarInfo } from './car-info.model';
 
 @Table({
-  tableName: 'car-E&E',
+  tableName: 'car_E&E',
 })
 export class EnE extends Model<EnE> {
   @PrimaryKey
@@ -29,14 +29,14 @@ export class EnE extends Model<EnE> {
   carInfo: CarInfo;
 
   @Column({ type: DataType.STRING, allowNull: false })
-  FuelType: string;
+  'Fuel Type': string;
 
   @Column({ type: DataType.STRING, allowNull: false })
-  FuelAverage: string;
+  'Fuel Average (per 100 km)': string;
 
   @Column({ type: DataType.STRING, allowNull: false })
-  FuelTankCapacity: string;
+  'Fuel Tank Capacity (L)': string;
 
   @Column({ type: DataType.STRING, allowNull: false })
-  FuelRange: string;
+  'Fuel Range (km)': string;
 }

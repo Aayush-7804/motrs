@@ -3,10 +3,10 @@ import React, { useState } from "react";
 import SimilarItem from "./SimilarItem";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
+import { header } from "@/types/header";
 
-const SimilarVehicle = () => {
+const SimilarVehicle: React.FC<{ cars: header[] }> = ({ cars }) => {
   const [swiper, setSwiper] = useState<any>(null);
-  const items = Array.from({ length: 12 }).map((_, i) => ({ id: i + 1 })); // Example: 12 items
 
   const goToPrevious = () => swiper?.slidePrev();
   const goToNext = () => swiper?.slideNext();
@@ -25,8 +25,8 @@ const SimilarVehicle = () => {
       <div className="w-full mx-auto max-[376px]:pl-5">
         <Swiper
           modules={[Navigation, Pagination]}
-          slidesPerView={1} // Default for smallest screens
-          slidesPerGroup={1} // Default for smallest screens
+          slidesPerView={1}
+          slidesPerGroup={1}
           breakpoints={{
             375: {
               slidesPerView: "auto",
@@ -48,12 +48,12 @@ const SimilarVehicle = () => {
               spaceBetween: 40,
             },
           }}
-          navigation={false} // Use custom navigation buttons
+          navigation={false}
           pagination={{
             el: ".custom-Vehicle-pagination",
             clickable: true,
-            bulletClass: "bg-[var(--Other-offWhite)]", // Class for pagination bullets
-            bulletActiveClass: "bg-[var(--Secondary-Teal)]", // Class for active bullet
+            bulletClass: "bg-[var(--Other-offWhite)]",
+            bulletActiveClass: "bg-[var(--Secondary-Teal)]",
             renderBullet: (index, className) => {
               return `<div class="${className} w-[31px] h-1.5 inline-block mx-1 cursor-pointer"></div>`;
             },
@@ -61,14 +61,13 @@ const SimilarVehicle = () => {
           onSwiper={setSwiper}
           className="mySwiper"
         >
-          {items.map((item) => (
+          {cars.map((item) => (
             <SwiperSlide key={item.id} style={{ width: "fit-content" }}>
-                <SimilarItem item={item.id} />
+              <SimilarItem item={item} />
             </SwiperSlide>
           ))}
         </Swiper>
       </div>
-      {/* Container with responsive max-width and padding */}
       <div className="flex items-center justify-between mt-4 max-[376px]:px-5">
         <button className="max-[376px]:hidden px-0 py-0" onClick={goToPrevious}>
           <svg

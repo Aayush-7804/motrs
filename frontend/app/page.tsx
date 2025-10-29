@@ -14,14 +14,30 @@ import DealerContact from "@/components/car-detail/Dealer-Contact";
 import SimilarVehicle from "@/components/car-detail/SimilarVehical";
 import MoveOnTo from "@/components/car-detail/moveOnTo";
 import NewsNReviews from "@/components/car-detail/News-and-Reviews";
+import {
+  specificationArrayCreator,
+  specificationObjectCleaner,
+} from "@/helper/object-manager";
+import { fetchCarData, fetchNewsData, fetchSimilarData } from "@/helper/handlers";
 
-const page = () => {
+const page = async () => {
+  const carData = await fetchCarData("9d5a5245-1ea3-424f-8e1b-044a19050f7a");
+  const carNews = await fetchNewsData();
+  const carSimilar = await fetchSimilarData("9d5a5245-1ea3-424f-8e1b-044a19050f7a");
+
+  const detailsSpecification = specificationArrayCreator(
+    carData.body,
+    carData.EnE,
+    carData.EnD,
+    carData.features
+  );
+
   return (
     <main>
-      <Navigation />
+      <Navigation details={carData} />
       <div className="flex flex-col min-[376px]:flex-col-reverse">
         <ImageGrid />
-        <DetailsHeader />
+        <DetailsHeader details={carData} />
       </div>
       <div className="max-w-360 mx-auto max-[1441px]:px-9.75 max-[376px]:px-5 mb-10 grid grid-cols-[repeat(2,1fr)_484px] max-[1025px]:grid-cols-[repeat(2,1fr)_334px] max-[769px]:block max-[769px]:space-y-8 gap-10">
         <div className="col-span-2 max-[376px]:flex flex-col">
@@ -29,15 +45,17 @@ const page = () => {
             <h3 className="text-xl font-bold capitalize leading-5.5 mb-5.75">
               description
             </h3>
-            <Description />
+            <Description description={carData.carDescription} />
           </div>
           <div className="mb-8 bg-[var(--Other-offWhite)]">
             <h3 className="px-4.75 py-5.5 text-xl leading-5.5 font-bold capitalize">
               overview
             </h3>
-            <Overview />
+            <Overview
+              overview={specificationObjectCleaner(carData.carOverview)}
+            />
           </div>
-          <DetailsSpecification />
+          <DetailsSpecification DS={detailsSpecification} />
         </div>
         <div className="space-y-8">
           <DealerContact />
@@ -55,9 +73,9 @@ const page = () => {
         </div>
       </div>
       <FinanceCalculator />
-      <SimilarVehicle />
+      <SimilarVehicle cars={carSimilar} />
       <MoveOnTo />
-      <NewsNReviews />
+      <NewsNReviews news={carNews} />
       <Subscribe />
     </main>
   );

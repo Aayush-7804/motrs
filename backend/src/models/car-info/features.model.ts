@@ -10,7 +10,7 @@ import {
 import { CarInfo } from './car-info.model';
 
 @Table({
-  tableName: 'car-features',
+  tableName: 'car_features',
 })
 export class Features extends Model<Features> {
   @PrimaryKey
@@ -29,86 +29,86 @@ export class Features extends Model<Features> {
   carInfo: CarInfo;
 
   @Column({ type: DataType.STRING, allowNull: false })
-  AC: string;
+  'Air Conditioning': string;
 
   @Column({ type: DataType.STRING, allowNull: false })
-  ABS: string;
+  'Anti-Lock Braking System (ABS)': string;
 
   @Column({ type: DataType.STRING, allowNull: false })
-  AuxIn: string;
+  'Aux In (Auxiliary Input)': string;
 
   @Column({ type: DataType.STRING, allowNull: false })
-  BC: string;
+  'Bluetooth Connectivity': string;
 
   @Column({ type: DataType.STRING, allowNull: false })
-  'BAS-EBA': string;
+  'Brake Assist (BAS/EBA)': string;
 
   @Column({ type: DataType.STRING, allowNull: false })
-  ClothUpholstery: string;
+  'Cloth Upholstery': string;
 
   @Column({ type: DataType.STRING, allowNull: false })
-  CurtainAirbags: string;
+  'Curtain Airbags': string;
 
   @Column({ type: DataType.STRING, allowNull: false })
-  DriverAirbag: string;
+  'Driver Airbag': string;
 
   @Column({ type: DataType.STRING, allowNull: false })
-  ElectricWindows: string;
+  'Electric Windows': string;
 
   @Column({ type: DataType.STRING, allowNull: false })
-  EAM: string;
+  'Electric-Adjust Mirrors': string;
 
   @Column({ type: DataType.STRING, allowNull: false })
-  EBD: string;
+  'Electronic Brake Distribution (EBD)': string;
 
   @Column({ type: DataType.STRING, allowNull: false })
-  FRS: string;
+  'Folding Rear Seat': string;
 
   @Column({ type: DataType.STRING, allowNull: false })
-  FFL: string;
+  'Front Fog Lamps/Lights': string;
 
   @Column({ type: DataType.STRING, allowNull: false })
-  FPassA: string;
+  'Front Passenger Airbag': string;
 
   @Column({ type: DataType.STRING, allowNull: false })
-  FSideA: string;
+  'Front Side Airbags': string;
 
   @Column({ type: DataType.STRING, allowNull: false })
-  ICSM: string;
+  'Isofix Child Seat Mountings': string;
 
   @Column({ type: DataType.STRING, allowNull: false })
-  MFSWC: string;
+  'Multi-Function Steering Wheel Controls': string;
 
   @Column({ type: DataType.STRING, allowNull: false })
-  OnBoardComputer: string;
+  'On-Board Computer / Multi-Information Display': string;
 
   @Column({ type: DataType.STRING, allowNull: false })
-  RCL: string;
+  'Remote Central Locking': string;
 
   @Column({ type: DataType.STRING, allowNull: false })
-  ServicePlan: string;
+  'Service Plan': string;
 
   @Column({ type: DataType.STRING, allowNull: false })
-  SplitRearSeat: string;
+  'Split Rear Seat': string;
 
   @Column({ type: DataType.STRING, allowNull: false })
-  StabilityControl: string;
+  'Stability Control': string;
 
   @Column({ type: DataType.STRING, allowNull: false })
-  TractionControl: string;
+  'Traction Control': string;
 
   @Column({ type: DataType.STRING, allowNull: false })
-  USBPort: string;
+  'USB Port': string;
 
   @Column({ type: DataType.STRING, allowNull: false })
-  ChildProof: string;
+  'Child-Proof/Safety Lock': string;
 
   @Column({ type: DataType.STRING, allowNull: false })
-  HeadlightLevel: string;
+  'Headlight Level/Range/Height Adjustment': string;
 
   @Column({ type: DataType.STRING, allowNull: false })
-  RearFogLamps: string;
+  'Rear Fog Lamps / Lights': string;
 
   @Column({ type: DataType.STRING, allowNull: false })
-  SpareWheelSize: string;
+  'Spare-Wheel Size': string;
 }

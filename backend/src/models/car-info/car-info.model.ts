@@ -13,7 +13,7 @@ import { EnE } from './EnE.model';
 import { EnD } from './EnD.model';
 
 @Table({
-  tableName: 'car-info',
+  tableName: 'car_info',
 })
 export class CarInfo extends Model<CarInfo> {
   @PrimaryKey

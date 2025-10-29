@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { Optional } from 'sequelize';
 import { NullishPropertiesOf } from 'sequelize/lib/utils';
@@ -23,14 +23,23 @@ export class CarDetailsService {
   }
 
   async getCarDetails(id: string) {
-    return await this.carInfoModel.findByPk(id, {
+    const car = await this.carInfoModel.findByPk(id, {
       include: [Overview, Body, EnD, EnE, Features],
     });
+    if (!car) {
+      throw new NotFoundException(`Car with ID ${id} not found`);
+    }
+    console.log(car.dataValues.carBrand, car.dataValues.carRange);
+    if (!car.dataValues.carBrand || !car.dataValues.carRange) {
+      throw new NotFoundException(`Car with ID ${id} has incomplete details`);
+    }
+    return car;
   }
 
-  createCarDetail() {
-    return this.carInfoModel.create(
+  async createCarDetail() {
+    return await this.carInfoModel.create(
       {
+        carCondition: 'Used Car',
         carLaunchYear: '2022',
         carBrand: 'Toyota',
         carRange: 'Premium',
@@ -46,73 +55,90 @@ export class CarDetailsService {
         ],
         carOverview: {
           Milage: '15000 km',
-          DriveType: 'FWD',
+          'Drive Type': 'FWD',
           Transmission: 'Automatic',
           Fuel: 'Petrol',
           Consumption: '15 km/l',
-          EngineCap: '2000 cc',
+          'Engine Cap': '2000 cc',
         },
         body: {
-          BodyType: 'Sedan',
+          'Body Type': 'Sedan',
           Doors: '4',
           Length: '4.5 m',
           Width: '1.8 m',
           Height: '1.4 m',
           Weight: '1500 kg',
           Seats: '5',
-          FrontTyres: '205/55 R16',
-          RearTyres: '205/55 R16',
-          DrivenWheels: 'Front',
+          'Front Tyres': '205/55 R16',
+          'Rear Tyres': '205/55 R16',
+          'Driven Wheels': 'Front',
         },
         EnD: {
           Engine: 'V6',
-          EnginePosition: 'Front',
+          'Engine Position': 'Front',
           Cylinders: '6',
-          Power: '250 HP',
-          Torque: '320 Nm',
+          'Power (kW)': '250 HP',
+          'Torque (Nm)': '320 Nm',
           Gearshift: '6-speed Automatic',
-          Emissions: '180 g/km',
-          Acceleration: '7.5 sec (0-100 km/h)',
-          MaximumSpeed: '240 km/h',
+          'CO₂ Emissions (Average) g/km': '180 g/km',
+          'Acceleration 0-100 km/h': '7.5 sec (0-100 km/h)',
+          'Maximum/Top Speed km/h': '240 km/h',
         },
         EnE: {
-          FuelType: 'Petrol',
-          FuelAverage: '15 km/l',
-          FuelTankCapacity: '50 liters',
-          FuelRange: '750 km',
+          'Fuel Type': 'Petrol',
+          'Fuel Average (per 100 km)': '15 km/l',
+          'Fuel Tank Capacity (L)': '50 liters',
+          'Fuel Range (km)': '750 km',
         },
         features: {
-          AC: 'true',
-          ABS: 'true',
-          AuxIn: 'true',
-          BC: 'true',
-          'BAS-EBA': 'true',
-          ClothUpholstery: 'true',
-          CurtainAirbags: 'true',
-          DriverAirbag: 'true',
-          ElectricWindows: 'true',
-          EAM: 'true',
-          EBD: 'true',
-          FRS: 'true',
-          FFL: 'true',
-          FPassA: 'true',
-          FSideA: 'true',
-          ICSM: 'true',
-          MFSWC: 'true',
-          OnBoardComputer: 'true',
-          RCL: 'true',
-          ServicePlan: 'true',
-          SplitRearSeat: 'true',
-          StabilityControl: 'true',
-          TractionControl: 'true',
-          USBPort: 'true',
-          ChildProof: 'true',
-          HeadlightLevel: 'true',
-          RearFogLamps: 'true',
-          SpareWheelSize: 'Full Size',
+          'Air Conditioning': 'true',
+          'Anti-Lock Braking System (ABS)': 'true',
+          'Aux In (Auxiliary Input)': 'true',
+          'Bluetooth Connectivity': 'true',
+          'Brake Assist (BAS/EBA)': 'true',
+          'Cloth Upholstery': 'true',
+          'Curtain Airbags': 'true',
+          'Driver Airbag': 'true',
+          'Electric Windows': 'true',
+          'Electric-Adjust Mirrors': 'true',
+          'Electronic Brake Distribution (EBD)': 'true',
+          'Folding Rear Seat': 'true',
+          'Front Fog Lamps/Lights': 'true',
+          'Front Passenger Airbag': 'true',
+          'Front Side Airbags': 'true',
+          'Isofix Child Seat Mountings': 'true',
+          'Multi-Function Steering Wheel Controls': 'true',
+          'On-Board Computer / Multi-Information Display': 'true',
+          'Remote Central Locking': 'true',
+          'Service Plan': 'true',
+          'Split Rear Seat': 'true',
+          'Stability Control': 'true',
+          'Traction Control': 'true',
+          'USB Port': 'true',
+          'Child-Proof/Safety Lock': 'true',
+          'Headlight Level/Range/Height Adjustment': 'true',
+          'Rear Fog Lamps / Lights': 'true',
+          'Spare-Wheel Size': 'Full Size',
         },
       } as Optional<CarInfo, NullishPropertiesOf<CarInfo>> | undefined,
       { include: [Overview, Body, EnD, EnE, Features] },
     );
+  }
+
+  async getSimilarCars(id: string) {
+    const car = await this.getCarDetails(id);
+
+    const similarCars = await this.carInfoModel.findAll({
+      where: {
+        carBrand: car.dataValues.carBrand,
+        carRange: car.dataValues.carRange,
+      },
+      include: [Overview, Body, EnD, EnE, Features],
+    });
+
+    const filteredSimilarCars = similarCars.filter(
+      (c) => c.dataValues.id !== id,
+    );
+    return filteredSimilarCars;
   }
 }

@@ -15,6 +15,11 @@ export class CarDetailsController {
     return await this.carDetailsService.getCarDetails(id);
   }
 
+  @Get('/:id/similar')
+  async getSimilarCarDetails(@Param('id') id: string) {
+    return await this.carDetailsService.getSimilarCars(id);
+  }
+
   @Post()
   async createCarDetail() {
     return await this.carDetailsService.createCarDetail();

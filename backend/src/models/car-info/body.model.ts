@@ -10,7 +10,7 @@ import {
 import { CarInfo } from './car-info.model';
 
 @Table({
-  tableName: 'car-body',
+  tableName: 'car_body',
 })
 export class Body extends Model<Body> {
   @PrimaryKey
@@ -29,7 +29,7 @@ export class Body extends Model<Body> {
   carInfo: CarInfo;
 
   @Column({ type: DataType.STRING, allowNull: false })
-  BodyType: string;
+  'Body Type': string;
 
   @Column({ type: DataType.STRING, allowNull: false })
   Doors: string;
@@ -50,11 +50,11 @@ export class Body extends Model<Body> {
   Seats: string;
 
   @Column({ type: DataType.STRING, allowNull: false })
-  FrontTyres: string;
+  'Front Tyres': string;
 
   @Column({ type: DataType.STRING, allowNull: false })
-  RearTyres: string;
+  'Rear Tyres': string;
 
   @Column({ type: DataType.STRING, allowNull: false })
-  DrivenWheels: string;
+  'Driven Wheels': string;
 }

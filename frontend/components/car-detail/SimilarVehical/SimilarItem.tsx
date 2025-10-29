@@ -4,29 +4,26 @@ import FormInput from "@/components/form/formInput";
 import { Location, RegHeart, SupInfoMark } from "@/components/svg";
 import React from "react";
 import ImageSlide from "./imageSlide";
+import { header } from "@/types/header";
+import { carHierarchy, toZAR } from "@/helper/handlers";
 
-const SimilarItem: React.FC<{ item: number; rank?: string }> = ({
-  item,
-  rank,
-}) => {
+const SimilarItem: React.FC<{ item: header }> = ({ item }) => {
   return (
     <div className="relative w-[310px] h-[521px] border-2 border-[var(--Other-offWhite)] bg-[var(--Other-White)]">
-      <small
-        className={`absolute z-30 top-3.5 left-0 px-2.5 py-0.75 capitalize text-[var(--Other-White)] ${
-          rank === "on special"
-            ? "bg-[var(--Secondary-Dirty-Red)]"
-            : "bg-[var(--Secondary-Teal)]"
-        }`}
-      >
-        grate price
-      </small>
+      {carHierarchy(item.carPrice, item.carPrePrice) && (
+        <small
+          className={`absolute z-30 top-3.5 left-0 px-2.5 py-0.75 capitalize text-[var(--Other-White)] bg-[var(--Secondary-Teal)]`}
+        >
+          grate price
+        </small>
+      )}
       <ImageSlide />
       <div className="flex flex-col gap-4 p-4">
         <div className="flex flex-col gap-2.75">
           <div>
             <div className="flex items-center gap-3.75">
               <h4 className="text-2xl font-bold text-[var(--Primary-Cherry-Red)] w-full whitespace-nowrap text-ellipsis line-clamp-1">
-                {item}
+                {toZAR(item.carPrice)}
               </h4>
               <RegHeart />
               <svg
@@ -43,21 +40,27 @@ const SimilarItem: React.FC<{ item: number; rank?: string }> = ({
             </div>
             <div className="flex items-center gap-1.5">
               <p className="text-xs leading-4.5 text-[var(--Primary-Cherry-Red)]">
-                R 27 636 p/m
+                {toZAR(item.carEMI)} p/m
               </p>
               <SupInfoMark />
             </div>
           </div>
           <div className="flex flex-col gap-1.25 h-25">
             <h4 className="font-bold leading-6 text-[var(--Primary-Midnight-Blue)] text-ellipsis line-clamp-2">
-              2024 Jeep Grand Cherokee L 3.6 4x4
+              {item.carLaunchYear} {item.carBrand} {item.carRange}{" "}
+              {item.carModel}
             </h4>
             <InfoLabels
-              items={["Used Car", "150km", "Automatic", "Petrol"]}
+              items={[
+                item.carCondition,
+                item.carOverview.Milage,
+                item.carOverview.Transmission,
+                item.carOverview.Fuel,
+              ]}
               className="text-xs leading-4.25 text-[var(--Primary-Midnight-Blue)] "
             />
             <small className="px-2.5 py-0.5 w-fit bg-[#E7E7E5] text-[var(--Primary-Font)] capitalize">
-              silver
+              {item.carColor}
             </small>
           </div>
           <div className="flex items-center gap-1.5">

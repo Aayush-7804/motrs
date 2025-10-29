@@ -10,7 +10,7 @@ import {
 import { CarInfo } from './car-info.model';
 
 @Table({
-  tableName: 'car-E&D',
+  tableName: 'car_E&D',
 })
 export class EnD extends Model<EnD> {
   @PrimaryKey
@@ -32,26 +32,26 @@ export class EnD extends Model<EnD> {
   Engine: string;
 
   @Column({ type: DataType.STRING, allowNull: false })
-  EnginePosition: string;
+  'Engine Position': string;
 
   @Column({ type: DataType.STRING, allowNull: false })
   Cylinders: string;
 
   @Column({ type: DataType.STRING, allowNull: false })
-  Power: string;
+  'Power (kW)': string;
 
   @Column({ type: DataType.STRING, allowNull: false })
-  Torque: string;
+  'Torque (Nm)': string;
 
   @Column({ type: DataType.STRING, allowNull: false })
   Gearshift: string;
 
   @Column({ type: DataType.STRING, allowNull: false })
-  Emissions: string;
+  'CO₂ Emissions (Average) g/km': string;
 
   @Column({ type: DataType.STRING, allowNull: false })
-  Acceleration: string;
+  'Acceleration 0-100 km/h': string;
 
   @Column({ type: DataType.STRING, allowNull: false })
-  MaximumSpeed: string;
+  'Maximum/Top Speed km/h': string;
 }

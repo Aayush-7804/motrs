@@ -10,7 +10,7 @@ import {
 import { CarInfo } from './car-info.model';
 
 @Table({
-  tableName: 'car-overview',
+  tableName: 'car_overview',
 })
 export class Overview extends Model<Overview> {
   @PrimaryKey
@@ -32,7 +32,7 @@ export class Overview extends Model<Overview> {
   Milage: string;
 
   @Column({ type: DataType.STRING, allowNull: false })
-  DriveType: string;
+  'Drive Type': string;
 
   @Column({ type: DataType.STRING, allowNull: false })
   Transmission: string;
@@ -44,5 +44,5 @@ export class Overview extends Model<Overview> {
   Consumption: string;
 
   @Column({ type: DataType.STRING, allowNull: false })
-  EngineCap: string;
+  'Engine Cap': string;
 }

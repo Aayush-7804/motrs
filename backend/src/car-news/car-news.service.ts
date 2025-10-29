@@ -21,7 +21,7 @@ export class CarNewsService {
       description:
         'The latest car model has been released with exciting features.',
       imageUrl: 'http://example.com/car-model.jpg',
-      tag: '',
+      tag: 'Announcement',
     } as Optional<NewsInfo, NullishPropertiesOf<NewsInfo>>);
   }
 }
