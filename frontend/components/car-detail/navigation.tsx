@@ -12,7 +12,7 @@ const Navigation: React.FC<{details: header}> = ({details}) => {
         <div className="flex items-center min-[769px]:gap-2.5 max-[769px]:flex-col max-[769px]:items-start">
           <Button className="whitespace-nowrap w-30.25 min-[1px]:px-0 h-12.5 text-[var(--Primary-Muted-Blue)] inline-flex items-center gap-2.5">
             <LeftArrow />
-            <Link href={"/"}>
+            <Link href={"."}>
               <p className="leading-4.5">Back to listing</p>
             </Link>
           </Button>

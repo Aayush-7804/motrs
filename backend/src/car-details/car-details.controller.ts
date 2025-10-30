@@ -1,5 +1,6 @@
-import { Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { CarDetailsService } from './car-details.service';
+import { DetailsBody } from 'src/DTOs/details-body.dto';
 
 @Controller('car-details')
 export class CarDetailsController {
@@ -20,8 +21,8 @@ export class CarDetailsController {
     return await this.carDetailsService.getSimilarCars(id);
   }
 
-  @Post()
-  async createCarDetail() {
-    return await this.carDetailsService.createCarDetail();
+  @Post('/:id')
+  async createCarDetail(@Body() body: DetailsBody, @Param('id') id: string) {
+    return await this.carDetailsService.createCarDetail(body,id);
   }
 }

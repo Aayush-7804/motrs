@@ -1,6 +1,8 @@
 import {
+  BelongsTo,
   Column,
   DataType,
+  ForeignKey,
   HasOne,
   Model,
   PrimaryKey,
@@ -11,6 +13,7 @@ import { Body } from './body.model';
 import { Features } from './features.model';
 import { EnE } from './EnE.model';
 import { EnD } from './EnD.model';
+import { DealerInfo } from '../dealer/dealer-info.model';
 
 @Table({
   tableName: 'car_info',
@@ -23,6 +26,16 @@ export class CarInfo extends Model<CarInfo> {
     allowNull: false,
   })
   id: string = '';
+
+  @BelongsTo(() => DealerInfo)
+  dealer: DealerInfo;
+
+  @ForeignKey(() => DealerInfo)
+  @Column({ type: DataType.UUID, allowNull: false })
+  dealerId: string;
+
+  @Column({ type: DataType.STRING, allowNull: false })
+  carCondition: string;
 
   @Column({ type: DataType.STRING, allowNull: false })
   carLaunchYear: string;
@@ -42,8 +55,8 @@ export class CarInfo extends Model<CarInfo> {
   @Column({ type: DataType.STRING, allowNull: false })
   carPrice: string;
 
-  @Column({ type: DataType.STRING, allowNull: false })
-  carPrePrice: string;
+  @Column({ type: DataType.STRING })
+  carPrePrice?: string;
 
   @Column({ type: DataType.STRING, allowNull: false })
   carEMI: string;

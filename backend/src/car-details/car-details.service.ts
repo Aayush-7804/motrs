@@ -2,18 +2,22 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { Optional } from 'sequelize';
 import { NullishPropertiesOf } from 'sequelize/lib/utils';
+import { DetailsBody } from 'src/DTOs/details-body.dto';
 import { Body } from 'src/models/car-info/body.model';
 import { CarInfo } from 'src/models/car-info/car-info.model';
 import { EnD } from 'src/models/car-info/EnD.model';
 import { EnE } from 'src/models/car-info/EnE.model';
 import { Features } from 'src/models/car-info/features.model';
 import { Overview } from 'src/models/car-info/overview.model';
+import { DealerInfo } from 'src/models/dealer/dealer-info.model';
 
 @Injectable()
 export class CarDetailsService {
   constructor(
     @InjectModel(CarInfo)
     private readonly carInfoModel: typeof CarInfo,
+    @InjectModel(DealerInfo)
+    private readonly dealerModel: typeof DealerInfo,
   ) {}
 
   async getAllCarDetails() {
@@ -29,30 +33,42 @@ export class CarDetailsService {
     if (!car) {
       throw new NotFoundException(`Car with ID ${id} not found`);
     }
-    console.log(car.dataValues.carBrand, car.dataValues.carRange);
     if (!car.dataValues.carBrand || !car.dataValues.carRange) {
       throw new NotFoundException(`Car with ID ${id} has incomplete details`);
     }
     return car;
   }
 
-  async createCarDetail() {
+  async createCarDetail(body: DetailsBody, id: string) {
+    const {
+      carCondition,
+      carLaunchYear,
+      carBrand,
+      carModel,
+      carPrice,
+      carRange,
+      carImagesUrl,
+    } = body;
+    const dealer = await this.dealerModel.findOne({
+      where: { id },
+    });
+    if (!dealer) {
+      throw new NotFoundException('Dealer does not exist.');
+    }
     return await this.carInfoModel.create(
       {
-        carCondition: 'Used Car',
-        carLaunchYear: '2022',
-        carBrand: 'Toyota',
-        carRange: 'Premium',
-        carModel: 'Model X',
+        dealerId: id,
+        carCondition,
+        carLaunchYear,
+        carBrand,
+        carRange,
+        carModel,
         carColor: 'Red',
-        carPrice: '2000000',
+        carPrice,
         carPrePrice: '2200000',
         carEMI: '300',
         carDescription: 'This is a sample car description.',
-        carImagesUrl: [
-          'http://example.com/image1.jpg',
-          'http://example.com/image2.jpg',
-        ],
+        carImagesUrl,
         carOverview: {
           Milage: '15000 km',
           'Drive Type': 'FWD',

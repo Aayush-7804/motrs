@@ -18,12 +18,12 @@ import {
   specificationArrayCreator,
   specificationObjectCleaner,
 } from "@/helper/object-manager";
-import { fetchCarData, fetchNewsData, fetchSimilarData } from "@/helper/handlers";
+import { fetchCarData, fetchNewsData, fetchSimilarData } from "@/helper/fetch";
 
 const page = async () => {
-  const carData = await fetchCarData("9d5a5245-1ea3-424f-8e1b-044a19050f7a");
+  const carData = await fetchCarData("93ede417-20b6-4073-8933-8444e9516ee9");
   const carNews = await fetchNewsData();
-  const carSimilar = await fetchSimilarData("9d5a5245-1ea3-424f-8e1b-044a19050f7a");
+  const carSimilar = await fetchSimilarData("93ede417-20b6-4073-8933-8444e9516ee9");
 
   const detailsSpecification = specificationArrayCreator(
     carData.body,
@@ -58,7 +58,7 @@ const page = async () => {
           <DetailsSpecification DS={detailsSpecification} />
         </div>
         <div className="space-y-8">
-          <DealerContact />
+          <DealerContact dealer={carData.dealerId} />
           <div className="px-4.25 py-5 flex gap-3 bg-gradient-to-r from-[#02253A] from-[-28.8%]  via-[#008291] via-[42.68%] to-[#2AA295] to-[95.49%]">
             <Image
               src={"/car-details-images/BrandLogo.jpg"}
@@ -73,7 +73,7 @@ const page = async () => {
         </div>
       </div>
       <FinanceCalculator />
-      <SimilarVehicle cars={carSimilar} />
+      <SimilarVehicle brand={carData.carBrand} model={carData.carRange} cars={carSimilar} />
       <MoveOnTo />
       <NewsNReviews news={carNews} />
       <Subscribe />

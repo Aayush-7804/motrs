@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { CarDetailsModule } from './car-details/car-details.module';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { CarNewsModule } from './car-news/car-news.module';
+import { CarDealersModule } from './car-dealers/car-dealers.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { CarNewsModule } from './car-news/car-news.module';
       logging: false,
     }),
     CarNewsModule,
+    CarDealersModule,
   ],
 })
 export class AppModule {}
