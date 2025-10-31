@@ -2,7 +2,7 @@ import { RegHeart } from "@/components/svg";
 import React from "react";
 import { BsArrowsFullscreen } from "react-icons/bs";
 
-const ImageSvgs: React.FC<{onClick?: () => void}> = ({onClick}) => {
+export const ImageSvgs: React.FC<{ onClick?: () => void }> = ({ onClick }) => {
   return (
     <div>
       <div className="absolute z-10 top-3 right-3.75 px-3.5 py-1.5 rounded-[30px] bg-[var(--Other-White)] opacity-90 flex items-center gap-4">
@@ -54,11 +54,43 @@ const ImageSvgs: React.FC<{onClick?: () => void}> = ({onClick}) => {
       <div className="absolute z-10 bottom-3 right-3.75 pl-3.5 pr-3 pb-0.75 pt-1.25 text-[var(--Secondary-Teal)] bg-[var(--Other-White)] opacity-90 font-bold leading-6 rounded-[30px]">
         360°
       </div>
-      <div className={`${onClick ? "block" : "hidden"} absolute z-10 bottom-3 left-3.75 p-1.25 text-[var(--Secondary-Teal)] font-bold bg-[var(--Other-White)] rounded-[5px] opacity-90`}>
+      <div
+        className={`${
+          onClick ? "block" : "hidden"
+        } absolute z-10 bottom-3 left-3.75 p-1.25 text-[var(--Secondary-Teal)] font-bold bg-[var(--Other-White)] rounded-[5px] opacity-90`}
+      >
         <BsArrowsFullscreen onClick={onClick} />
       </div>
     </div>
   );
 };
 
-export default ImageSvgs;
+export const ImageModalXMark: React.FC<{ handleModal: () => void, color: string }> = ({
+  handleModal, color
+}) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+      onClick={handleModal}
+    >
+      <path
+        d="M15 5L5 15"
+        stroke={color}
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M5 5L15 15"
+        stroke={color}
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+};

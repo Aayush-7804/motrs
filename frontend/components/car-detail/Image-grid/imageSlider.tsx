@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
-import ImageSvgs from "./imageSvgs";
+import { ImageSvgs } from "./imageSvgs";
 import { Pagination } from "swiper/modules";
 
 interface ImageSliderProps {
-  images: string [];
+  images: string[];
   fullScreen?: ((image: string) => void) | undefined;
-  currentImageShown?: (image: string ) => void;
+  currentImageShown?: (image: string) => void;
   initialImage?: string;
   mobileModal?: boolean;
 }
@@ -21,9 +21,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
 }) => {
   const [currentIndex, setCurrentIndex] = useState(() => {
     if (initialImage) {
-      const index = images.findIndex(
-        (img) => img === initialImage
-      );
+      const index = images.findIndex((img) => img === initialImage);
       return index !== -1 ? index : 0;
     }
     return 0;
@@ -32,9 +30,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
 
   useEffect(() => {
     if (initialImage && swiperRef.current?.swiper) {
-      const index = images.findIndex(
-        (img) => img === initialImage
-      );
+      const index = images.findIndex((img) => img === initialImage);
       if (index !== -1) {
         setCurrentIndex(index);
         swiperRef.current.swiper.slideTo(index);
@@ -66,12 +62,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
       }}
       slidesPerView={1}
       initialSlide={
-        initialImage
-          ? images.findIndex(
-              (img) =>
-                img === initialImage
-            )
-          : 0
+        initialImage ? images.findIndex((img) => img === initialImage) : 0
       }
       modules={[Pagination]}
       pagination={{
@@ -79,8 +70,8 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
         dynamicBullets: true,
         clickable: true,
         renderBullet: (index, className) => {
-            return `<div class="${className}" style="width: 6px; aspect-ratio: 1 / 1; background-color: var(--Other-White);"></div>`;
-          },
+          return `<div class="${className}" style="width: 6px; aspect-ratio: 1 / 1; background-color: var(--Other-White);"></div>`;
+        },
       }}
       onSlideChange={handleSlideChange}
       onSwiper={(swiper) => (swiperRef.current = swiper)}
@@ -98,7 +89,6 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
               priority={index === 0}
             />
           </div>
-            
         </SwiperSlide>
       ))}
       <div className="imageSwiper-pagination absolute z-30"></div>

@@ -21,23 +21,25 @@ import {
 import { fetchCarData, fetchNewsData, fetchSimilarData } from "@/helper/fetch";
 
 const page = async () => {
-  const carData = await fetchCarData("93ede417-20b6-4073-8933-8444e9516ee9");
+  const carData = await fetchCarData("ca44090b-4fa5-4664-9207-27485ba65ea3");
   const carNews = await fetchNewsData();
-  const carSimilar = await fetchSimilarData("93ede417-20b6-4073-8933-8444e9516ee9");
-
+  const carSimilar = await fetchSimilarData(
+    "ca44090b-4fa5-4664-9207-27485ba65ea3"
+  );
   const detailsSpecification = specificationArrayCreator(
     carData.body,
     carData.EnE,
     carData.EnD,
     carData.features
   );
+  const detailsTitle = `${carData.carLaunchYear} ${carData.carBrand} ${carData.carRange} ${carData.carModel} ${carData.carColor}`;
 
   return (
     <main>
       <Navigation details={carData} />
       <div className="flex flex-col min-[376px]:flex-col-reverse">
-        <ImageGrid />
-        <DetailsHeader details={carData} />
+        <ImageGrid images={carData.carImagesUrl} title={detailsTitle} description={carData.carDescription} />
+        <DetailsHeader title={detailsTitle} details={carData} />
       </div>
       <div className="max-w-360 mx-auto max-[1441px]:px-9.75 max-[376px]:px-5 mb-10 grid grid-cols-[repeat(2,1fr)_484px] max-[1025px]:grid-cols-[repeat(2,1fr)_334px] max-[769px]:block max-[769px]:space-y-8 gap-10">
         <div className="col-span-2 max-[376px]:flex flex-col">
@@ -73,7 +75,11 @@ const page = async () => {
         </div>
       </div>
       <FinanceCalculator />
-      <SimilarVehicle brand={carData.carBrand} model={carData.carRange} cars={carSimilar} />
+      <SimilarVehicle
+        brand={carData.carBrand}
+        model={carData.carRange}
+        cars={carSimilar}
+      />
       <MoveOnTo />
       <NewsNReviews news={carNews} />
       <Subscribe />

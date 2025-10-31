@@ -4,30 +4,19 @@ import React, { useState } from "react";
 import Modal from "../../common/Modal";
 import DealerContact from "../Dealer-Contact";
 import ImageSlider from "./imageSlider";
-import ImageSvgs from "./imageSvgs";
+import { ImageModalXMark, ImageSvgs } from "./imageSvgs";
 
 type imageType = string;
 
-const carImages: imageType[] = [
-  "/news/news1.jpg",
-  "/car-details-images/image2.jpg",
-  "/car-details-images/image3.jpg",
-  "/car-details-images/image4.jpg",
-  "/car-details-images/image4.jpg",
-  "/car-details-images/image4.jpg",
-  "/car-details-images/image4.jpg",
-  "/car-details-images/image4.jpg",
-  "/car-details-images/image4.jpg",
-  "/car-details-images/image4.jpg",
-  "/car-details-images/image4.jpg",
-  "/car-details-images/image4.jpg",
-];
-
-const ImageGrid = () => {
+const ImageGrid: React.FC<{
+  images: string[];
+  title: string;
+  description: string;
+}> = ({ images, title, description }) => {
   const [modalOpen, setModalOpen] = useState<boolean>(false);
   const [openedImage, setOpenImage] = useState<imageType | null>(null);
-  const visibleImages = carImages.slice(0, 6);
-  const otherImagesCount = carImages.length - visibleImages.length;
+  const visibleImages = images.slice(0, 6);
+  const otherImagesCount = images.length - visibleImages.length;
 
   const handleModal = (item: imageType | null) => {
     console.log("clicked");
@@ -57,39 +46,17 @@ const ImageGrid = () => {
             <div className="max-[376px]:hidden">
               <div className="sticky top-0 z-30 flex items-center px-7.5 py-5 text-[var(--Primary-Midnight-Blue)] bg-[var(--Other-White)] border-b border-[var(--Other-Grey)]">
                 <h1 className="text-xl font-bold leading-5.5 capitalize w-full">
-                  2017 Hyundai Tucson 2.0CRDi Elite - R 399 950
+                  {title}
                 </h1>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  onClick={() => handleModal(null)}
-                >
-                  <path
-                    d="M15 5L5 15"
-                    stroke="#003C52"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <path
-                    d="M5 5L15 15"
-                    stroke="#003C52"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
+                <ImageModalXMark
+                  handleModal={() => handleModal(null)}
+                  color="#003C52"
+                />
               </div>
               <div className="flex">
                 <div className="w-[875px] max-[1025px]:w-[575px] max-[769px]:w-[675px] flex flex-col gap-2.5 p-7.5">
                   <p className="text-sm leading-5.5 text-[var(--Primary-Font)]">
-                    Image Description Goes here. Lorem ipsum dolor sit amet,
-                    consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad
-                    minim veniam, quis nostrud exercitation ullamco
+                    {description}
                   </p>
                   <div className="relative w-full h-[613px] max-[1025px]:h-[413px]">
                     <Image
@@ -102,7 +69,7 @@ const ImageGrid = () => {
                     <ImageSvgs />
                   </div>
                   <div className="flex w-full gap-2.5 overflow-x-auto outline-0">
-                    {carImages.map((item,index) => (
+                    {images.map((item, index) => (
                       <div key={index}>
                         <Image
                           src={item}
@@ -124,38 +91,19 @@ const ImageGrid = () => {
             <div className="min-[376px]:hidden relative">
               <div className="absolute top-0 w-full flex items-center justify-between p-3">
                 <div className="bg-[var(--Other-White)] px-2 py-1 flex items-center gap-1 text-[var(--Secondary-Teal)] text-sm leading-6 rounded-2xl">
-                  <p>{carImages.indexOf(openedImage) + 1}</p>
-                  <p>of</p>
-                  <p>{carImages.length}</p>
+                  <span>{images.indexOf(openedImage) + 1}</span>
+                  <span>of</span>
+                  <span>{images.length}</span>
                 </div>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  onClick={() => handleModal(null)}
-                >
-                  <path
-                    d="M15 5L5 15"
-                    stroke="#ffffff"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <path
-                    d="M5 5L15 15"
-                    stroke="#ffffff"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
+                <ImageModalXMark
+                  handleModal={() => handleModal(null)}
+                  color="#ffffff"
+                />
               </div>
               <div className="w-full h-dvh flex items-center">
                 <ImageSlider
                   initialImage={openedImage}
-                  images={carImages}
+                  images={images}
                   currentImageShown={handleImage}
                   mobileModal
                 />
@@ -168,13 +116,13 @@ const ImageGrid = () => {
       <div className="relative overflow-hidden max-w-360 mx-auto mb-15 max-[1441px]:mx-9.75 max-[376px]:m-0 max-[376px]:mb-5 grid grid-cols-5 gap-0.5 max-[769px]:flex ">
         <div className="max-[769px]:hidden relative min-w-full min-h-full col-span-2 row-span-2 ">
           <Image
-            src={carImages[0]}
-            alt={"image-" + carImages[0]}
+            src={images[0]}
+            alt={"image-" + images[0]}
             width={500}
             height={500}
             className="w-full h-full object-cover"
           />
-          <ImageSvgs onClick={() => handleModal(carImages[0])} />
+          <ImageSvgs onClick={() => handleModal(images[0])} />
         </div>
         {visibleImages.map((item, index) => {
           const isLast = index === visibleImages.length - 1;
@@ -197,7 +145,7 @@ const ImageGrid = () => {
           );
         })}
         <div className="min-[769px]:hidden relative min-w-full">
-          <ImageSlider images={carImages} fullScreen={handleModal} />
+          <ImageSlider images={images} fullScreen={handleModal} />
         </div>
       </div>
     </>

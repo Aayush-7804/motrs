@@ -36,7 +36,7 @@ const MoveOnTo = () => {
             />
           </div>
           <div>
-            <h5 className="text-[var(--Primary-Font)] ">R799 900</h5>
+            <p className="text-[var(--Primary-Font)] ">R799 900</p>
             <p className="font-normal text-[var(--Primary-Midnight-Blue)]">
               Ford Ranger
             </p>
@@ -75,7 +75,7 @@ const MoveOnTo = () => {
             />
           </div>
           <div>
-            <h5 className="text-[var(--Primary-Font)] ">R799 900</h5>
+            <p className="text-[var(--Primary-Font)] ">R799 900</p>
             <p className="font-normal text-[var(--Primary-Midnight-Blue)]">
               Ford Ranger
             </p>

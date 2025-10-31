@@ -1,15 +1,7 @@
-
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 
-const ImageSlide = () => {
-      const images = [
-    "/Similar/sm1.jpg",
-    "/Similar/sm2.jpg",
-    "/Similar/sm3.jpg",
-    "/Similar/sm4.jpg",
-  ];
-
+const ImageSlide: React.FC<{ images: string[] }> = ({ images }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
@@ -33,9 +25,9 @@ const ImageSlide = () => {
     };
   }, [isHovered, images.length]);
 
-  const directedTo = (index:number) => {
+  const directedTo = (index: number) => {
     setCurrentImageIndex(index);
-  }
+  };
   return (
     <div
       className="relative overflow-hidden"

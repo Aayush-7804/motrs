@@ -13,7 +13,7 @@ const InfoLabels: React.FC<{
           key={index}
           className={`not-first:px-1.5 whitespace-nowrap border-r first:pr-1.5 last:border-0 ${className}`}
         >
-          <Link href={item}>{item}</Link>
+          {item}
         </li>
       ))}
     </ul>

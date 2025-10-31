@@ -9,6 +9,7 @@ export type header = {
   carPrice: string;
   carPrePrice: string;
   carEMI: string;
+  carImagesUrl: string[];
   carOverview: {
     Milage: string;
     Transmission: string;

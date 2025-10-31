@@ -64,7 +64,7 @@ export class CarInfo extends Model<CarInfo> {
   @Column({ type: DataType.STRING, allowNull: false })
   carDescription: string;
 
-  @Column({ type: DataType.ARRAY(DataType.STRING), allowNull: false })
+  @Column({ type: DataType.ARRAY(DataType.STRING) })
   carImagesUrl: string[];
 
   @HasOne(() => Overview)

@@ -1,4 +1,8 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { Optional } from 'sequelize';
 import { NullishPropertiesOf } from 'sequelize/lib/utils';
@@ -10,6 +14,8 @@ import { EnE } from 'src/models/car-info/EnE.model';
 import { Features } from 'src/models/car-info/features.model';
 import { Overview } from 'src/models/car-info/overview.model';
 import { DealerInfo } from 'src/models/dealer/dealer-info.model';
+import * as fs from 'fs';
+import * as path from 'path';
 
 @Injectable()
 export class CarDetailsService {
@@ -39,7 +45,11 @@ export class CarDetailsService {
     return car;
   }
 
-  async createCarDetail(body: DetailsBody, id: string) {
+  async createCarDetail(
+    body: DetailsBody,
+    id: string,
+    files: Express.Multer.File[],
+  ) {
     const {
       carCondition,
       carLaunchYear,
@@ -47,7 +57,6 @@ export class CarDetailsService {
       carModel,
       carPrice,
       carRange,
-      carImagesUrl,
     } = body;
     const dealer = await this.dealerModel.findOne({
       where: { id },
@@ -55,7 +64,16 @@ export class CarDetailsService {
     if (!dealer) {
       throw new NotFoundException('Dealer does not exist.');
     }
-    return await this.carInfoModel.create(
+    if (!files) {
+      throw new BadRequestException([
+        'image field is empty',
+        'select at least 5 images',
+      ]);
+    } else if (files.length < 5) {
+      throw new BadRequestException(['select at least 5 images']);
+    }
+
+    const newCar = await this.carInfoModel.create(
       {
         dealerId: id,
         carCondition,
@@ -68,7 +86,7 @@ export class CarDetailsService {
         carPrePrice: '2200000',
         carEMI: '300',
         carDescription: 'This is a sample car description.',
-        carImagesUrl,
+        // carImagesUrl: filesSo,
         carOverview: {
           Milage: '15000 km',
           'Drive Type': 'FWD',
@@ -139,6 +157,31 @@ export class CarDetailsService {
       } as Optional<CarInfo, NullishPropertiesOf<CarInfo>> | undefined,
       { include: [Overview, Body, EnD, EnE, Features] },
     );
+
+    const filesSo = files.map((file) =>
+      this.uploadImage(newCar.dataValues.id, file),
+    );
+
+    await newCar.update({ carImagesUrl: filesSo });
+    await newCar.reload();
+    return newCar;
+  }
+
+  uploadImage(
+    id: string,
+    file: {
+      originalname: string;
+      buffer: string | NodeJS.ArrayBufferView<ArrayBufferLike>;
+    },
+  ) {
+    const name = `${id}*${file.originalname.replace(/\s/g, '')}`;
+    const uploadDir = './uploads';
+    if (!fs.existsSync(uploadDir)) {
+      fs.mkdirSync(uploadDir);
+    }
+    const filePath = path.join(uploadDir, name);
+    fs.writeFileSync(filePath, file.buffer);
+    return `http://localhost:5001/uploads/${name}`;
   }
 
   async getSimilarCars(id: string) {

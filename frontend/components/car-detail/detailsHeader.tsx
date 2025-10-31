@@ -5,7 +5,10 @@ import InfoLabels from "../common/InfoLabels";
 import { header } from "@/types/header";
 import { carHierarchy, toZAR } from "@/helper/handlers";
 
-const DetailsHeader: React.FC<{ details: header }> = ({ details }) => {
+const DetailsHeader: React.FC<{ details: header; title: string }> = ({
+  details,
+  title,
+}) => {
   return (
     <div className="mx-auto px-9.75 max-[376px]:px-5 min-[1025px]:w-360 max-[1441px]:m-0">
       <div className="min-[376px]:hidden flex items-center justify-between mb-3.75">
@@ -23,8 +26,7 @@ const DetailsHeader: React.FC<{ details: header }> = ({ details }) => {
       <div className="max-[376px]:block mb-7.5 text-[var(--Primary-Font)] flex items-center justify-between">
         <div className="flex flex-col gap-2.5">
           <h1 className="text-[32px] font-medium leading-10.5 max-[376px]:leading-6.5 max-[769px]:text-2xl max-[376px]:text-xl">
-            {details.carLaunchYear} {details.carBrand} {details.carRange}{" "}
-            {details.carModel} {details.carColor}
+            {title}
           </h1>
           <div className="flex items-center gap-5">
             {carHierarchy(details.carPrice, details.carPrePrice) && (
@@ -48,7 +50,10 @@ const DetailsHeader: React.FC<{ details: header }> = ({ details }) => {
           <div className="text-[var(--Primary-Cherry-Red)] max-[376px]:mb-4.5">
             <div className="flex items-end gap-1">
               <span className="font-normal leading-6 max-[376px]:leading-7 text-[var(--Secondary-Font)] max-[769px]:text-[10px]">
-                Was <span className="line-through">{toZAR(details.carPrePrice)}</span>
+                Was{" "}
+                <span className="line-through">
+                  {toZAR(details.carPrePrice)}
+                </span>
               </span>
               <h2 className="text-3xl leading-8.25 font-bold max-[769px]:text-xl">
                 {toZAR(details.carPrice)}

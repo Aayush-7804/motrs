@@ -17,7 +17,7 @@ const SimilarItem: React.FC<{ item: header }> = ({ item }) => {
           grate price
         </small>
       )}
-      <ImageSlide />
+      <ImageSlide images={item.carImagesUrl.slice(0,4)} />
       <div className="flex flex-col gap-4 p-4">
         <div className="flex flex-col gap-2.75">
           <div>

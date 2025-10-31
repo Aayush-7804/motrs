@@ -1,4 +1,4 @@
-import { ArrayMinSize, IsArray, IsNotEmpty, IsString } from 'class-validator';
+import { IsNotEmpty, IsString } from 'class-validator';
 
 export class DetailsBody {
   @IsNotEmpty()
@@ -19,7 +19,4 @@ export class DetailsBody {
   @IsNotEmpty()
   @IsString()
   carPrice: string;
-  @IsArray()
-  @ArrayMinSize(1)
-  carImagesUrl: string[];
 }
