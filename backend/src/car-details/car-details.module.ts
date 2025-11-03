@@ -17,5 +17,6 @@ import { CarDealersModule } from 'src/car-dealers/car-dealers.module';
   ],
   controllers: [CarDetailsController],
   providers: [CarDetailsService],
+  exports: [SequelizeModule],
 })
 export class CarDetailsModule {}

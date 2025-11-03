@@ -3,6 +3,7 @@ import {
   Column,
   DataType,
   ForeignKey,
+  HasMany,
   HasOne,
   Model,
   PrimaryKey,
@@ -14,6 +15,7 @@ import { Features } from './features.model';
 import { EnE } from './EnE.model';
 import { EnD } from './EnD.model';
 import { DealerInfo } from '../dealer/dealer-info.model';
+import { Deal } from '../deal/deal';
 
 @Table({
   tableName: 'car_info',
@@ -81,4 +83,7 @@ export class CarInfo extends Model<CarInfo> {
 
   @HasOne(() => Features)
   features: Features;
+
+  @HasMany(() => Deal)
+  deal: Deal[];
 }

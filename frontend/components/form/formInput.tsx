@@ -18,7 +18,8 @@ const FormInput: React.FC<{
           id={formName}
           name={formName}
           rows={3}
-          className="w-full px-3.75 py-3.25 text-sm bg-[var(--Other-White)] text-black outline-0"
+          className="w-full px-3.75 py-3.25 text-sm bg-[var(--Other-White)] text-[var(--Primary-Font)] outline-0"
+          required
         ></textarea>
       </div>
     );
@@ -34,6 +35,7 @@ const FormInput: React.FC<{
           name={formName}
           type={type}
           className="peer appearance-none w-full h-full border border-[var(--Other-Grey)] rounded-[5px] checked:bg-[var(--Secondary-Teal)] checked:border-[var(--Secondary-Teal)] relative text-sm bg-[var(--Other-White)] text-black outline-0"
+          required
         />
         {type === "checkbox" && (
           <span className="absolute left-1/2 -translate-1/2 top-1/2 -translate-y-1/2 pointer-events-none text-white text-sm opacity-0 peer-checked:opacity-100">
@@ -62,27 +64,6 @@ const FormInput: React.FC<{
     );
   }
 
-  if (type === "file" && of === "images") {
-    return (
-      <div className={className}>
-        <label htmlFor={formName} className="text-xs leading-4.5 font-normal">
-          {name}
-        </label>
-        <input
-          id={formName}
-          name={formName}
-          type={type}
-          multiple
-          accept=".png, .jpg, .jpeg"
-
-          className={
-            "w-full px-3.75 py-3.25 text-sm bg-[var(--Other-White)] text-black outline-0"
-          }
-        />
-      </div>
-    );
-  }
-
   return (
     <div className={className}>
       <label htmlFor={formName} className="text-xs leading-4.5 font-normal">
@@ -93,8 +74,9 @@ const FormInput: React.FC<{
         name={formName}
         type={type || "text"}
         className={
-          "w-full px-3.75 py-3.25 text-sm bg-[var(--Other-White)] text-black outline-0"
+          "w-full px-3.75 py-3.25 text-sm bg-[var(--Other-White)] text-[var(--Primary-Font)] outline-0"
         }
+        required
       />
     </div>
   );

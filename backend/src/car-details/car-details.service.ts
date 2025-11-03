@@ -16,6 +16,7 @@ import { Overview } from 'src/models/car-info/overview.model';
 import { DealerInfo } from 'src/models/dealer/dealer-info.model';
 import * as fs from 'fs';
 import * as path from 'path';
+import { Deal } from 'src/models/deal/deal';
 
 @Injectable()
 export class CarDetailsService {
@@ -34,7 +35,7 @@ export class CarDetailsService {
 
   async getCarDetails(id: string) {
     const car = await this.carInfoModel.findByPk(id, {
-      include: [Overview, Body, EnD, EnE, Features],
+      include: [Overview, Body, EnD, EnE, Features, Deal],
     });
     if (!car) {
       throw new NotFoundException(`Car with ID ${id} not found`);

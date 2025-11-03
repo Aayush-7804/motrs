@@ -1,26 +1,26 @@
 import React from "react";
 import FormInput from "../../form/formInput";
 import Button from "../../common/Button";
+import DealerNumber from "./DealerNumber";
+import { submitForm } from "@/helper/fetch";
 
 const Inputs: { name: string; formName: string; type?: string }[] = [
   { name: "Name", formName: "name" },
   { name: "Last Name", formName: "last-name" },
   { name: "Email", formName: "email", type: "email" },
-  { name: "Number", formName: "mobile-number" },
+  { name: "Number", formName: "mobile-number", type: "number" },
   { name: "Message", formName: "message", type: "textarea" },
 ];
 
-const DetailPageForm = () => {
+const DetailPageForm: React.FC<{ contact: string }> = ({ contact }) => {
   return (
-    <form className="p-7.5 space-y-2.5 border-t border-b border-[#ffffff33]">
+    <form
+      className="p-7.5 space-y-2.5 border-t border-b border-[#ffffff33]"
+      action={submitForm}
+    >
       <div className="mb-5 flex flex-col gap-5">
         <h4 className="text-xl font-medium">Enquire about this car</h4>
-        <div className="px-3.75 leading-5.5 py-3.25 text-xs bg-[var(--Other-White)] flex items-center justify-between">
-          <p></p>
-          <p className="font-bold text-[var(--Primary-Muted-Blue)] ">
-            Show Contect Number
-          </p>
-        </div>
+        <DealerNumber contact={contact} />
         <Button type="button" className="bg-[#45CF78]">
           WhatsApp the Dealer
         </Button>
@@ -34,7 +34,12 @@ const DetailPageForm = () => {
         />
       ))}
       <div className="text-sm flex items-center gap-3.25">
-        <FormInput type="checkbox" className="relative flex flex-row-reverse items-center gap-3.25" formName="teams-condition" name="I agree to receive general emails and product offers." />
+        <FormInput
+          type="checkbox"
+          className="relative flex flex-row-reverse items-center gap-3.25"
+          formName="teams-condition"
+          name="I agree to receive general emails and product offers."
+        />
       </div>
       <p className="text-xs leading-4.5">
         Read how we protect and process your personal information{" "}
