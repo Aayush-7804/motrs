@@ -10,35 +10,49 @@ import Description from "@/components/car-detail/description";
 import DetailsSpecification from "@/components/car-detail/Details-Specification";
 import FinanceCalculator from "@/components/car-detail/financeCalculator";
 import Subscribe from "@/components/car-detail/subscribe";
-import DealerContact from "@/components/car-detail/Dealer-Contact";
+import Deal from "@/components/car-detail/Dealer-Contact";
 import SimilarVehicle from "@/components/car-detail/SimilarVehical";
 import MoveOnTo from "@/components/car-detail/moveOnTo";
 import NewsNReviews from "@/components/car-detail/News-and-Reviews";
 import {
+  getDealerTitle,
   specificationArrayCreator,
   specificationObjectCleaner,
 } from "@/helper/object-manager";
-import { fetchCarData, fetchNewsData, fetchSimilarData } from "@/helper/fetch";
+import {
+  fetchCarData,
+  fetchDealerData,
+  fetchNewsData,
+  fetchSimilarData,
+} from "@/helper/fetch";
+
+const car = "9f386734-5406-41b8-957e-3cb378c40076";
 
 const page = async () => {
-  const carData = await fetchCarData("ca44090b-4fa5-4664-9207-27485ba65ea3");
+  const carData = await fetchCarData(car);
   const carNews = await fetchNewsData();
-  const carSimilar = await fetchSimilarData(
-    "ca44090b-4fa5-4664-9207-27485ba65ea3"
-  );
+  const carSimilar = await fetchSimilarData(car);
   const detailsSpecification = specificationArrayCreator(
     carData.body,
     carData.EnE,
     carData.EnD,
     carData.features
   );
+  const dealerData = await fetchDealerData(carData.dealerId);
+  const dealerTitle = await getDealerTitle(dealerData);
   const detailsTitle = `${carData.carLaunchYear} ${carData.carBrand} ${carData.carRange} ${carData.carModel} ${carData.carColor}`;
 
   return (
     <main>
       <Navigation details={carData} />
       <div className="flex flex-col min-[376px]:flex-col-reverse">
-        <ImageGrid images={carData.carImagesUrl} title={detailsTitle} description={carData.carDescription} />
+        <ImageGrid
+          dealer={dealerData}
+          dealerTitle={dealerTitle}
+          images={carData.carImagesUrl}
+          title={detailsTitle}
+          description={carData.carDescription}
+        />
         <DetailsHeader title={detailsTitle} details={carData} />
       </div>
       <div className="max-w-360 mx-auto max-[1441px]:px-9.75 max-[376px]:px-5 mb-10 grid grid-cols-[repeat(2,1fr)_484px] max-[1025px]:grid-cols-[repeat(2,1fr)_334px] max-[769px]:block max-[769px]:space-y-8 gap-10">
@@ -60,7 +74,7 @@ const page = async () => {
           <DetailsSpecification DS={detailsSpecification} />
         </div>
         <div className="space-y-8">
-          <DealerContact dealer={carData.dealerId} />
+          <Deal dealer={dealerData} title={dealerTitle} />
           <div className="px-4.25 py-5 flex gap-3 bg-gradient-to-r from-[#02253A] from-[-28.8%]  via-[#008291] via-[42.68%] to-[#2AA295] to-[95.49%]">
             <Image
               src={"/car-details-images/BrandLogo.jpg"}

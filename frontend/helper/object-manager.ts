@@ -38,13 +38,11 @@ export function specificationArrayTitle(index: number): string {
 }
 
 export async function getDealerTitle(data: dealer) {
-  const dealers = await fetchDealerData("");
+  const dealers = await fetchDealerData();
   const notCurrentDealer = dealers.filter(
     (dealer: { id: string }) => dealer.id !== data.id
   );
-
   let title = data.dealer;
-
   const sameDealerName = notCurrentDealer.filter(
     (dealer: { dealer: string }) => dealer.dealer === data.dealer
   ).length;

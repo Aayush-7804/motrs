@@ -37,36 +37,38 @@ export const toZAR = (amount: string): string => {
 
 export const scheduling = (schedule: string[][]) => {
   const weeklySlots: string[][] = [
-    ["9:31", "22:15"], // Sun
     ["9:32", "22:25"], // Mon
     ["9:33", "22:35"], // Tue
     ["9:34", "22:45"], // Wed
     ["9:35", "22:55"], // Thu
     ["9:36", "12:05"], // Fri
+    ["9:31", "22:15"], // Sun
     ["close", "close"], // Sat
   ];
   const day = [
-    "Sunday",
     "Monday",
     "Tuesday",
     "Wednesday",
     "Thursday",
     "Friday",
     "Saturday",
+    "Sunday",
   ];
   const toMinutes = (time: string): number => {
     const [h, m] = time.split(":").map(Number);
-    if (m) {
-      return h * 60 + m;
-    }
-    return h * 60;
+    return h * 60 + (m ?? 0);
   };
 
   const format12 = (time: string): string => {
     const [h, m] = time.split(":").map(Number);
     const period = h >= 12 ? "pm" : "am";
     const displayH = h === 0 ? 12 : h > 12 ? h - 12 : h;
-    return `${displayH}:${m ? m.toString().padStart(2, "0") : "00"} ${period}`;
+    return `${displayH}:${(m ?? 0).toString().padStart(2, "0")} ${period}`;
+  };
+
+  const formatDayLine = (slot: string[]): string => {
+    if (slot[0] === "close") return `Closed`;
+    return `${format12(slot[0])}-${format12(slot[1])}`;
   };
 
   const findNextOpen = (
@@ -86,19 +88,18 @@ export const scheduling = (schedule: string[][]) => {
     return undefined;
   };
 
-  const getTimeStatus = (
-    slots: string[][],
-    dayIndex: number = new Date().getDay()
-  ) => {
-    const today = slots[dayIndex - 1];
-    const currentMinutes = new Date().getHours() * 60 + new Date().getMinutes();
+  const getCurrentDayStatus = (slots: string[][]) => {
+    const jsDay = new Date().getDay(); // 0 = Sun … 6 = Sat
+    const dayIdx = jsDay === 0 ? 6 : jsDay - 1; // map to our Mon-start array
 
-    // Full day closed
-    if (today[0] === "close" || today[1] === "close") {
+    const today = slots[dayIdx];
+    const nowMin = new Date().getHours() * 60 + new Date().getMinutes();
+
+    if (today[0] === "close") {
       return {
         isOpen: false,
         label: "Closed",
-        nextOpen: findNextOpen(slots, dayIndex % 7),
+        nextOpen: findNextOpen(slots, (dayIdx + 1) % 7),
       };
     }
 
@@ -108,22 +109,26 @@ export const scheduling = (schedule: string[][]) => {
     const close12 = format12(today[1]);
     const label = `${open12}-${close12}`;
 
-    const isOpen = currentMinutes >= openMin && currentMinutes < closeMin;
+    const isOpen = nowMin >= openMin && nowMin < closeMin;
 
     if (isOpen) {
       return { isOpen, label, nextClose: close12 };
     }
 
     const nextOpen =
-      currentMinutes < openMin
+      nowMin < openMin
         ? `${open12} today`
-        : findNextOpen(slots, dayIndex % 7);
+        : findNextOpen(slots, (dayIdx + 1) % 7);
 
     return { isOpen: false, label, nextOpen, nextClose: close12 };
   };
 
-  const status = getTimeStatus(schedule);
+  const weekLabel = schedule.map((slot) => formatDayLine(slot));
 
-  console.log(new Date().getDay());
-  return status;
+  const currentStatus = getCurrentDayStatus(schedule);
+  return {
+    ...currentStatus,
+    weekLabel,
+    day,
+  };
 };

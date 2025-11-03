@@ -2,9 +2,10 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import Modal from "../../common/Modal";
-import DealerContact from "../Dealer-Contact";
+import Deal from "../Dealer-Contact";
 import ImageSlider from "./imageSlider";
 import { ImageModalXMark, ImageSvgs } from "./imageSvgs";
+import { dealer } from "@/types/dealer";
 
 type imageType = string;
 
@@ -12,7 +13,9 @@ const ImageGrid: React.FC<{
   images: string[];
   title: string;
   description: string;
-}> = ({ images, title, description }) => {
+  dealerTitle: string;
+  dealer: dealer;
+}> = ({ images, title, description, dealer, dealerTitle }) => {
   const [modalOpen, setModalOpen] = useState<boolean>(false);
   const [openedImage, setOpenImage] = useState<imageType | null>(null);
   const visibleImages = images.slice(0, 6);
@@ -84,7 +87,7 @@ const ImageGrid: React.FC<{
                   </div>
                 </div>
                 <div className="max-[769px]:hidden">
-                  <DealerContact />
+                  <Deal dealer={dealer} title={dealerTitle} />
                 </div>
               </div>
             </div>
@@ -136,7 +139,7 @@ const ImageGrid: React.FC<{
                 className="w-full h-full object-cover"
                 onClick={() => handleModal(item)}
               />
-              {isLast && (
+              {otherImagesCount > 0 && isLast && (
                 <div className="bg-black/60 absolute w-full h-full top-0 left-0 text-[var(--Other-White)] flex justify-center items-center">
                   <p>+{otherImagesCount} more</p>
                 </div>
